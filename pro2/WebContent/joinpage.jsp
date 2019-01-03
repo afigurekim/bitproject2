@@ -12,6 +12,11 @@
 
 <style type="text/css">
 
+	#divi{
+  		width: 960px;
+  		height:950px; 
+  		}
+
 	form{
 //	border: 0.6px solid gray;
 	padding: 35px;
@@ -57,6 +62,10 @@
     	});
     	
     }
+    
+    
+    var form,id,pw,name,adress,phone,email;
+    
     
  
 
