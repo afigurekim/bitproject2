@@ -10,6 +10,20 @@
 <link rel="stylesheet" style="text/css" href="css/mypage.css"/>
 <style></style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    	$('#menu>ul>li').mouseover(function(){
+    		$(this).children('ol').stop().slideDown(1000);
+    	}).mouseout(function() {
+    		$(this).children('ol').stop().slideUp(1000);
+			
+		});
+    	
+    	window.setInterval(imgNext, 2000);
+    	
+    	
+    });
+</script>
 </head>
 <body>
 	<%@ include file="template/header.jspf" %>
