@@ -55,6 +55,7 @@
 <%@ include file="template/header.jspf" %>
 
 <%@ include file="template/join.jspf" %>
+	<h1>회원가입</h1>
 <p><strong>이용약관</strong></p>
 			<div id="box">
 
