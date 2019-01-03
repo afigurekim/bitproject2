@@ -1,8 +1,5 @@
 
-  		#divi{
-  		width: 960px;
-  		height:1050px; 
-  		}
+  	
   
 		#left{
 		
@@ -12,7 +9,7 @@
 		height:1050px; 
 		}
 		
-		#left>div{
+		#left>#h{
 		background-color:#08298A;
   		padding: 25px;
   		width:150px;
@@ -20,24 +17,31 @@
   		color: white;
   		text-align: center;
   		font-size: 28px;
-  		line-height: 45px;
-  		margin: 30px 0 0 11px;
+  		line-height: 42px;
+  		margin: 30px 0 0 0;
 		}
 		
-		#left>ul{
-		
-		}
-		
-		#left>ul>li{
-		list-style: none;
-		
-		}
-		
-		#left>ul>li>a{
+
+
+	#left>#pre{
+	background-color: white;
+	width: 200px;
+	height: 45px;
+	border-bottom: 0.3px solid #9EA2A2;
+	text-align: center;
+	line-height: 50px;
+	margin: 15px 0 0 0;
+	
+	
+	
+	}
+	
+	#left>#pre>a{
+	
 		text-decoration: none;
-		font-size: 17px;
-		
-		}
+		font-size: 18px;
+	}
+
 		
 		#right{
 		margin: 0 0 0 23px;
