@@ -31,7 +31,7 @@
         
    #menu{
    clear: both;
-   left: 26%;
+   left: 35%;
    
   
    }
@@ -87,15 +87,14 @@
      #in>a:nth-child(2){
      background-color: #707372;
      color: white;
-       padding: 10.2px;
-       margin: 0px 0px 0px 5px;
-     margin: 26px 0px 0px 1px;
+       padding: 10.2px 16.3px 10.2px 16.3px;
+     margin: 26px 0px 0px 2px;
     }
     #in>a:nth-child(1){
      background-color: #6AD1E3;
      color: white;
-       padding:10.2px 18.8px 10.2px 18.8px;
-     margin: 26px 0px 0px 10px;
+       padding:10.2px 25px 10.2px 25px;
+     margin: 26px 0px 0px 11px;
            
     }
         
