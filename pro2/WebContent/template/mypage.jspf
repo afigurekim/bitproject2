@@ -2,14 +2,13 @@
     pageEncoding="UTF-8"%>
 	<div id="divi">
 		<div id="left">
-			<div>My Page</div>
-			<ul>
-				<li><a href="mypage.jsp">출석</a></li>
-				<li><a href="myclass.jsp">수강신청</a></li>
-				<li><a href="myscore.jsp">성적확인</a></li>
-				<li><a href="mycheckin.jsp">출석확인</a></li>
-				<li><a href="myinfo.jsp">개인정보수정</a></li>
-			</ul>
+			<div id="h">My Page</div>
+			
+			<div id="pre"><a href="mypage.jsp">출석</a></div>
+			<div id="pre"><a href="myclass.jsp">수강신청</a></div>
+			<div id="pre"><a href="myscore.jsp">성적확인</a></div>
+			<div id="pre"><a href="mycheckin.jsp">출석확인</a></div>
+			<div id="pre"><a href="myinfo.jsp">개인정보수정</a></div>
 		</div>
 
 		<div id="right">

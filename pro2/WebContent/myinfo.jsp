@@ -8,20 +8,62 @@
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,900&amp;subset=korean" rel="stylesheet">
 <link rel="stylesheet" style="text/css" href="css/main.css"/>
 <link rel="stylesheet" style="text/css" href="css/mypage.css"/>
-<style></style>
+<style type="text/css">
+
+	#divi{
+	  	width: 960px;
+	  	height: 1050px; 
+	}
+	  		
+	form{
+	padding: 35px;
+	}
+
+	form>div{
+		width: 500px;
+		height: 50px;
+	}
+	
+	form #addressBlock{
+		width: 500px;
+		height: 100px;
+	}
+	
+	form>div>label{
+	font-weight: bold;
+	font-size: 15px;
+	}
+	
+	form>div>input{
+		width: 175px;
+	}
+	
+	form>div #address{
+		width: 360px;
+	}
+	
+	form>div #postsearch{
+		padding: 5px;
+		width: 120px;
+		font-size: 12px;
+	}
+	
+	form .btn{
+   		padding: 5px;
+   		width: 100px;
+   		font-size: 12px;	
+	}
+	
+	
+</style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
     	$('#menu>ul>li').mouseover(function(){
-    		$(this).children('ol').stop().slideDown(1000);
+    		$(this).children('ol').stop().slideDown(200);
     	}).mouseout(function() {
-    		$(this).children('ol').stop().slideUp(1000);
-			
+    		$(this).children('ol').stop().slideUp(200);
 		});
-    	
-    	window.setInterval(imgNext, 2000);
-    	
-    	
     });
 </script>
 </head>
@@ -31,15 +73,17 @@
 	<%@ include file="template/mypage.jspf" %>
 	<p><strong>개인정보수정</strong></p>
 	<form action="#">
-		이름 <input type="text" placeholder="홍길동"/><br />
-		비밀번호 <input type="password" placeholder="비밀번호"/><br />
-		비밀번호 확인 <input type="password" placeholder="비밀번호"/><br />
-		주소 
-		<input type="text" id="postcode" placeholder="우편번호"/>
-		<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"/><br />
-		<input type="text" id="address" placeholder="주소"/><br />
-		<input type="text" id="detailAddress" placeholder="상세주소"/>
-		<input type="text" id="extraAddress" placeholder="참고항목"/> <br />
+		<div><label>이름</label>&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" placeholder="홍길동"/></div>
+		<div><label>비밀번호</label>&emsp;&emsp;&emsp;&nbsp;<input type="password" placeholder="비밀번호"/></div>
+		<div><label>비밀번호 확인</label>&emsp;&nbsp;<input type="password" placeholder="비밀번호"/></div>
+		<div id="addressBlock">
+			<label>주소</label>&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;
+			<input type="text" id="postcode" placeholder="우편번호"/>
+			<input type="button" id="postsearch" onclick="execDaumPostcode()" value="우편번호 찾기"/><br />
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" id="address" placeholder="주소"/><br />
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" id="detailAddress" placeholder="상세주소"/>
+			<input type="text" id="extraAddress" placeholder="참고항목"/>
+		</div>
 		
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script>
@@ -96,16 +140,21 @@
 		    }
 		</script>
 				
-		연락처 <input type="text" placeholder="010-0000-0000"/><br />
-		이메일 <input type="text" placeholder="honggildong"/>@<input type="text" placeholder="email.com"/><br />
-		<input type="submit" value="수정"/>
-		<input type="button" onclick="goBack()" value="취소"/>
+		<div><label>연락처</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" placeholder="010-0000-0000"/></div>
+		<div><label>이메일</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" placeholder="honggildong"/>@<input type="text" placeholder="email.com"/></div>
+		<input type="submit" class="btn" value="수정"/>
+		<input type="button" class="btn" onclick="goBack()" value="취소"/>
 		<script>
 			function goBack(){
 				window.history.back();
 			}
 		</script>
 	</form>
+	
+	</div>
+	
+	</div>
+	
 	<%@ include file="template/footer.jspf" %>
 </body>
 </html>
