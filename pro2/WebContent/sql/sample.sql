@@ -7,7 +7,7 @@ create table member(
 	userid varchar2(12),
 	userpw varchar2(12),
 	useraddr varchar2(120),
-	userphone number(12),
+	userphone varchar2(12),
 	usermail varchar2(30),
 	userprog number,
 	userlevel varchar2(15)
