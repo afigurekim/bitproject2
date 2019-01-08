@@ -19,7 +19,6 @@ public class MyinfoController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userid = request.getParameter("userid");
-		System.out.println(userid);
 		MemberDao dao = new MemberDao();
 		
 		try {
@@ -29,7 +28,7 @@ public class MyinfoController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.getRequestDispatcher("../myinfo.jsp").forward(request, response);
+		request.getRequestDispatcher("../myinfo.bit").forward(request, response);
 	}
 	
 	

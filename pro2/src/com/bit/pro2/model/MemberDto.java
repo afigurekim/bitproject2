@@ -1,8 +1,8 @@
 package com.bit.pro2.model;
 
 public class MemberDto {
-	private int usernum;
-	private String username, userid, userpw, useraddr, userphone, usermail, userprog, userlevel;
+	private int usernum, userprog;
+	private String username, userid, userpw, useraddr, userphone, usermail, userlevel;
 	
 	public MemberDto(){
 		
@@ -64,11 +64,11 @@ public class MemberDto {
 		this.usermail = usermail;
 	}
 
-	public String getUserprog() {
+	public int getUserprog() {
 		return userprog;
 	}
 
-	public void setUserprog(String userprog) {
+	public void setUserprog(int userprog) {
 		this.userprog = userprog;
 	}
 

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.bit.pro2.model.MemberDto" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,16 +73,21 @@
 	<%@ include file="template/header.jspf" %>
 
 	<%@ include file="template/mypage.jspf" %>
+	
 	<p><strong>개인정보수정</strong></p>
+	<%
+		ArrayList<MemberDto> list = (ArrayList<MemberDto>) request.getAttribute("alist");
+		for(MemberDto bean : list){
+	%>
 	<form action="#">
-		<div><label>이름</label>&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" placeholder="홍길동"/></div>
-		<div><label>비밀번호</label>&emsp;&emsp;&emsp;&nbsp;<input type="password" placeholder="비밀번호"/></div>
-		<div><label>비밀번호 확인</label>&emsp;&nbsp;<input type="password" placeholder="비밀번호"/></div>
+		<div><label>이름</label>&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" value="<%= bean.getUsername() %>" placeholder="홍길동"/></div>
+		<div><label>비밀번호</label>&emsp;&emsp;&emsp;&nbsp;<input type="password" value="<%= bean.getUserpw() %>" placeholder="비밀번호"/></div>
+		<div><label>비밀번호 확인</label>&emsp;&nbsp;<input type="password"  value="<%= bean.getUserpw() %>"placeholder="비밀번호"/></div>
 		<div id="addressBlock">
 			<label>주소</label>&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;
 			<input type="text" id="postcode" placeholder="우편번호"/>
 			<input type="button" id="postsearch" onclick="execDaumPostcode()" value="우편번호 찾기"/><br />
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" id="address" placeholder="주소"/><br />
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" id="address" value="<%= bean.getUseraddr() %>" placeholder="주소"/><br />
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" id="detailAddress" placeholder="상세주소"/>
 			<input type="text" id="extraAddress" placeholder="참고항목"/>
 		</div>
@@ -140,8 +147,8 @@
 		    }
 		</script>
 				
-		<div><label>연락처</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" placeholder="010-0000-0000"/></div>
-		<div><label>이메일</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" placeholder="honggildong"/>@<input type="text" placeholder="email.com"/></div>
+		<div><label>연락처</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" value="<%= bean.getUserphone() %>" placeholder="010-0000-0000"/></div>
+		<div><label>이메일</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" value="<%= bean.getUsermail() %>" placeholder="honggildong@email.com"/></div>
 		<input type="submit" class="btn" value="수정"/>
 		<input type="button" class="btn" onclick="goBack()" value="취소"/>
 		<script>
@@ -151,6 +158,10 @@
 		</script>
 	</form>
 	
+	<%
+		}
+	%>
+
 	</div>
 	
 	</div>
