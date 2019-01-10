@@ -26,10 +26,10 @@ create table program(
 	progname varchar2(30),
 	progteach number,
 	progroom varchar2(30),
-	timestart varchar2(15),
-	timeend varchar2(15),
 	datestart date,
 	dateend date,
+	timestart varchar2(15),
+	timeend number,
 	progsize number
 );
 
