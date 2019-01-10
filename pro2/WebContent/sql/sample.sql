@@ -35,8 +35,8 @@ create table program(
 
 create sequence program_seq;
 
-insert into program values (program_seq.nextval, 'java', 84, 'class1', '09:30', '320', sysdate, sysdate, 30 );
-insert into program values (program_seq.nextval, 'database', 85, 'class2', '10:30', '120', sysdate, sysdate, 30 );
-insert into program values (program_seq.nextval, 'web', 84, 'class3', '12:00', '60', sysdate, sysdate, 30 );
+insert into program values (program_seq.nextval, 'java', 84, 'class1', sysdate, sysdate, '09:30', 320, 30 );
+insert into program values (program_seq.nextval, 'database', 85, 'class2', sysdate, sysdate, '10:30', 120, 30 );
+insert into program values (program_seq.nextval, 'web', 84, 'class3', sysdate, sysdate, '12:00', 60, 30 );
 
 commit;
