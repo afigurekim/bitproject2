@@ -1,4 +1,3 @@
-
 /* CSH Sample data 2019/01/04 */ 
 
 create table member(
@@ -21,5 +20,23 @@ insert into member values (member_seq.nextval,'stu3','stu3','1234','seoul 1234',
 insert into member values (member_seq.nextval,'tea1','tea1','1234','seoul 1234',01042434246,'444444@hanmail.net',1234,'teacher');
 insert into member values (member_seq.nextval,'tea2','tea2','1234','seoul 1234',01042434246,'555555@hanmail.net',1234,'teacher');
 insert into member values (member_seq.nextval,'ma1','ma1','1234','seoul 1234',01042434246,'666666@hanmail.net',1234,'admin');
+
+create table program(
+	prognum	number primary key,
+	progname varchar2(30),
+	progteach number,
+	progroom varchar2(30),
+	timestart varchar2(15),
+	timeend varchar2(15),
+	datestart date,
+	dateend date,
+	progsize number
+);
+
+create sequence program_seq;
+
+insert into program values (program_seq.nextval, 'java', 84, 'class1', '09:30', '320', sysdate, sysdate, 30 );
+insert into program values (program_seq.nextval, 'database', 85, 'class2', '10:30', '120', sysdate, sysdate, 30 );
+insert into program values (program_seq.nextval, 'web', 84, 'class3', '12:00', '60', sysdate, sysdate, 30 );
 
 commit;
