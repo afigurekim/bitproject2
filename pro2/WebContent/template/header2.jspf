@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div>
+	
+	<div id="header">
+		<a href="http://localhost:8080/pro2/main/main.jsp"><img alt="mainpage_logo" src="./imgs/Logo.png"></a>
+	</div>
+	
+	
+	<div id="menu">
+		<ul>
+                    <li><strong>학원소개</strong>
+                        <ol>
+                            <li><a href="http://localhost:8080/pro2/list/notice.jsp">공지사항</a></li>
+                            <li><a href="http://localhost:8080/pro2/list/hello.jsp">인사말</a></li>
+                            <li><a href="http://localhost:8080/pro2/list/teacher.jsp#">강사 소개</a></li>
+                            <li><a href="http://localhost:8080/pro2/list/load.jsp">찾아오는 길</a></li>
+                        </ol>
+                    </li>
+                    <li><strong>학과목 안내</strong>
+                     <ol>
+                            <li><a href="http://localhost:8080/pro2/list/java.jsp">JAVA</a></li>
+                            <li><a href="http://localhost:8080/pro2/list/database.jsp">Database</a></li>
+                            <li><a href="http://localhost:8080/pro2/list/web.jsp">Web</a></li>
+                        </ol>
+                    </li>
+                    <li><strong>정규교육과정</strong>
+                           <ol>
+                            <li><a href="http://localhost:8080/pro2/list/coursejava.jsp">JAVA과정</a></li>
+                            <li><a href="http://localhost:8080/pro2/list/courseC.jsp">C언어과정</a></li>
+                        </ol>
+                    </li>
+                    <li><strong>온라인 상담</strong>
+                         <ol>
+                            <li><a href="http://localhost:8080/pro2/list/oadvice.jsp">강좌 상담</a></li>
+                            <li><a href="http://localhost:8080/pro2/list/oqna.jsp">Q&A</a></li>
+                        </ol>
+                    </li>
+                </ul>
+             
+             <div id="in">   
+             <a href="#" id="logout"><strong>로그아웃</strong></a>
+			<a href="#" id="page"><strong>관리자</strong></a>
+			</div>
+	</div>
+
+	

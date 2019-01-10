@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+	<div id="divi">
+		<div id="left">
+			<div id="h">학과목 안내</div>
+			
+	
+			<div id="pre"><a href="http://localhost:8080/pro2/lists/java.jsp">JAVA</a></div>
+			<div id="pre"><a href="http://localhost:8080/pro2/lists/database.jsp">DATABASE</a></div>
+			<div id="pre"><a href="http://localhost:8080/pro2/lists/web.jsp">WEB</a></div>
+			
+			
+			
+		</div>
+
+		<div id="right">
+		
+			

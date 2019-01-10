@@ -5,10 +5,10 @@
 			<div id="h">학원소개</div>
 			
 	
-			<div id="pre"><a href="http://localhost:8080/pro2/notice.jsp">공지사항</a></div>
-			<div id="pre"><a href="http://localhost:8080/pro2/hello.jsp">인사말</a></div>
-			<div id="pre"><a href="http://localhost:8080/pro2/teacher.jsp#">강사소개</a></div>
-			<div id="pre"><a href="http://localhost:8080/pro2/load.jsp">찾아오는 길</a></div>
+			<div id="pre"><a href="http://localhost:8080/pro2/lists/notice.jsp">공지사항</a></div>
+			<div id="pre"><a href="http://localhost:8080/pro2/lists/hello.jsp">인사말</a></div>
+			<div id="pre"><a href="http://localhost:8080/pro2/lists/teacher.jsp">강사소개</a></div>
+			<div id="pre"><a href="http://localhost:8080/pro2/lists/load.jsp">찾아오는 길</a></div>
 			
 			
 		</div>
