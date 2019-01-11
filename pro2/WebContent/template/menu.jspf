@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div id="content">
+	<div id="mainimgs">
+	<ul>
+		<li><img alt="mainpage_banner" src="imgs/MainPage.jpg"></li>
+		<li><img alt="main" src="imgs/bitacademy.png"></li>
+	</ul>
+	</div>
+	
+		<div id="sub">
+			<div>
+				<a href="#">Python 프로그래밍</a>
+				<p>*과정 페이지로이동</p>
+				교육장소 | 서대문점</br>
+				교육문의 | 02_3486_9600
+			</div>
+		
+			<div>
+				<a href="#">JAVA 웹개발자 고급과정</a>
+				<p>*과정 페이지로이동</p>
+				교육장소 | 서대문점</br>
+				교육문의 | 02_3486_9600
+			</div>
+			<div>
+				<a href="#">C Master C프로그래밍</a>
+				<p>*과정 페이지로이동</p>
+				교육장소 | 서대문점</br>
+				교육문의 | 02_3486_9600
+			</div>
+		</div>
+	
+	
+
+		<img alt="bene" src="imgs/benefit.jpg">
+	
+	
+</div>

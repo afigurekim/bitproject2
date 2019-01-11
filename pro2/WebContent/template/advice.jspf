@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+	<div id="divi">
+		<div id="left">
+			<div id="h">온라인 상담</div>
+	
+			<div id="pre"><a href="http://localhost:8080/pro2/">강좌 상담</a></div>
+			<div id="pre"><a href="http://localhost:8080/pro2/list/oqna.jsp">Q&A</a></div>
+			
+			
+			
+			
+		</div>
+		
+		
+		
+		
+
+		<div id="right">
+		
+			

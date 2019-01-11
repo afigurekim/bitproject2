@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div>
+
+		<% 
+			String str =null;
+			String headUrl=request.getRequestURL().toString();
+			System.out.println(headUrl);
+			
+			if(headUrl.equals("http://localhost:8080/pro2/main.jsp")
+					||headUrl.equals("http://localhost:8080/pro2/list.jsp")
+					){
+					str="";
+				}else{
+					str="../";
+			}
+		%>	
+	
+	<div id="header">
+		<a href="http://localhost:8080/pro2/main.jsp"><img alt="mainpage_logo" src="http://localhost:8080/pro2/imgs/Logo.png"></a>
+		<a href="<%=str %>mg_admission.bit">[관리자]</a>
+		<a href="mg_attend.bit">[강사]</a>
+	</div>
+	
+	<div id="menu">
+		<ul>
+                    <li><strong>학원소개</strong>
+                        <ol>
+                            <li><a href="http://localhost:8080/pro2/lists/notice.jsp">공지사항</a></li>
+                            <li><a href="http://localhost:8080/pro2/lists/hello.jsp">인사말</a></li>
+                            <li><a href="http://localhost:8080/pro2/lists/teacher.jsp">강사 소개</a></li>
+                            <li><a href="http://localhost:8080/pro2/lists/load.jsp">찾아오는 길</a></li>
+                        </ol>
+                    </li>
+                    <li><strong>학과목 안내</strong>
+                     <ol>
+                            <li><a href="http://localhost:8080/pro2/lists/java.jsp">JAVA</a></li>
+                            <li><a href="http://localhost:8080/pro2/lists/database.jsp">Database</a></li>
+                            <li><a href="http://localhost:8080/pro2/lists/web.jsp">Web</a></li>
+                        </ol>
+                    </li>
+                    <li><strong>정규교육과정</strong>
+                           <ol>
+                            <li><a href="http://localhost:8080/pro2/lists/coursejava.jsp">JAVA과정</a></li>
+                            <li><a href="http://localhost:8080/pro2/lists/courseC.jsp">C언어과정</a></li>
+                        </ol>
+                    </li>
+                    <li><strong>온라인 상담</strong>
+                         <ol>
+                            <li><a href="http://localhost:8080/pro2/list.bit">강좌 상담</a></li>
+                            <li><a href="http://localhost:8080/pro2/lists/oqna.jsp">Q&A</a></li>
+                        </ol>
+                    </li>
+                </ul>
+             
+             <div id="in">   
+             <a href="#" id="log"><strong>로그인</strong></a>
+			<a href="http://localhost:8080/pro2/main/join.jsp" id="join"><strong>회원가입</strong></a>
+			</div>
+	</div>
+
+	
