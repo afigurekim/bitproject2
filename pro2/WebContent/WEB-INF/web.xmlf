@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>pro2</display-name>
+  <welcome-file-list>
+    <welcome-file>main.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>myinfo</servlet-name>
+    <servlet-class>com.bit.pro2.controller.MyinfoController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>myupdate</servlet-name>
+    <servlet-class>com.bit.pro2.controller.MyupdateController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>mypage</servlet-name>
+    <servlet-class>com.bit.pro2.controller.MypageController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>mypagein</servlet-name>
+    <servlet-class>com.bit.pro2.controller.MypageInController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>mypageout</servlet-name>
+    <servlet-class>com.bit.pro2.controller.MypageOutController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>mycheckin</servlet-name>
+    <servlet-class>com.bit.pro2.controller.MycheckinController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>myinfo</servlet-name>
+    <url-pattern>/myinfo.bit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>myupdate</servlet-name>
+    <url-pattern>/myupdate.bit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>mypage</servlet-name>
+    <url-pattern>/mypage.bit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>mypagein</servlet-name>
+    <url-pattern>/mypagein.bit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>mypageout</servlet-name>
+    <url-pattern>/mypageout.bit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>mycheckin</servlet-name>
+    <url-pattern>/mycheckin.bit</url-pattern>
+  </servlet-mapping>
+</web-app>

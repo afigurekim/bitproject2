@@ -9,27 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bit.pro2.model.MemberDao;
-import com.bit.pro2.model.MemberDto;
+import com.bit.pro2.model.CheckinDao;
+import com.bit.pro2.model.CheckinDto;
 
-public class MyinfoController extends HttpServlet {
+public class MycheckinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userid = req.getParameter("userid");
 		
-		MemberDao dao = new MemberDao();
+		CheckinDao dao = new CheckinDao();
 		
 		try {
-			ArrayList<MemberDto> list = dao.memberGet(userid);
+			ArrayList<CheckinDto> list = dao.checkinGet(userid);
 			req.setAttribute("alist", list);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		req.getRequestDispatcher("myinfo.jsp").forward(req, resp);
-
+		
+		
+		req.getRequestDispatcher("mycheckin.jsp").forward(req, resp);
 	}
 	
 }

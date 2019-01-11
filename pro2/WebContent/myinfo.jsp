@@ -75,21 +75,24 @@
 	<%@ include file="template/mypage.jspf" %>
 	
 	<p><strong>개인정보수정</strong></p>
-	<%
-		ArrayList<MemberDto> list = (ArrayList<MemberDto>) request.getAttribute("alist");
-		for(MemberDto bean : list){
-	%>
-	<form action="#">
-		<div><label>이름</label>&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" value="<%= bean.getUsername() %>" placeholder="홍길동"/></div>
-		<div><label>비밀번호</label>&emsp;&emsp;&emsp;&nbsp;<input type="password" value="<%= bean.getUserpw() %>" placeholder="비밀번호"/></div>
-		<div><label>비밀번호 확인</label>&emsp;&nbsp;<input type="password"  value="<%= bean.getUserpw() %>"placeholder="비밀번호"/></div>
+	<% if(request.getParameter("pwchk")==null || request.getParameter("pwchk").equals("true")){}
+	else if(request.getParameter("pwchk").equals("false")) { %><div>*비밀번호가 일치하지 않습니다. 비밀번호를 동일하게 입력해주세요.</div> <% } %>
+		<form action="myupdate.bit" method="post">
+		<div><label>ID</label>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<%= request.getParameter("userid") %><input type="hidden" name="userid" value="<%= request.getParameter("userid") %>"/></div>
+		<%
+			ArrayList<MemberDto> list = (ArrayList<MemberDto>) request.getAttribute("alist");
+			for(MemberDto bean : list){
+		%>
+		<div><label>이름</label>&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" name="username" value="<%= bean.getUsername() %>" placeholder="홍길동"/></div>
+		<div><label>비밀번호</label>&emsp;&emsp;&emsp;&nbsp;<input type="password" name="userpw" value="<%= bean.getUserpw() %>" placeholder="비밀번호"/></div>
+		<div><label>비밀번호 확인</label>&emsp;&nbsp;<input type="password" name="userpwchk" value="<%= bean.getUserpw() %>"placeholder="비밀번호"/></div>
 		<div id="addressBlock">
 			<label>주소</label>&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;
-			<input type="text" id="postcode" placeholder="우편번호"/>
+			<input type="text" name="addrcode" id="postcode" placeholder="우편번호"/>
 			<input type="button" id="postsearch" onclick="execDaumPostcode()" value="우편번호 찾기"/><br />
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" id="address" value="<%= bean.getUseraddr() %>" placeholder="주소"/><br />
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" id="detailAddress" placeholder="상세주소"/>
-			<input type="text" id="extraAddress" placeholder="참고항목"/>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" name="addrmain" id="address" value="<%= bean.getUseraddr() %>" placeholder="주소"/><br />
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input type="text" name="addrdetail" id="detailAddress" placeholder="상세주소"/>
+			<input type="text" name="addrextra" id="extraAddress" placeholder="참고항목"/>
 		</div>
 		
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -147,8 +150,8 @@
 		    }
 		</script>
 				
-		<div><label>연락처</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" value="<%= bean.getUserphone() %>" placeholder="010-0000-0000"/></div>
-		<div><label>이메일</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" value="<%= bean.getUsermail() %>" placeholder="honggildong@email.com"/></div>
+		<div><label>연락처</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" name="userphone" value="<%= bean.getUserphone() %>" placeholder="010-0000-0000"/></div>
+		<div><label>이메일</label>&emsp;&emsp;&emsp;&emsp;&nbsp;<input type="text" name="usermail" value="<%= bean.getUsermail() %>" placeholder="honggildong@email.com"/></div>
 		<input type="submit" class="btn" value="수정"/>
 		<input type="button" class="btn" onclick="goBack()" value="취소"/>
 		<script>
