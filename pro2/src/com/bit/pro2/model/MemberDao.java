@@ -10,10 +10,10 @@ import com.bit.pro2.util.MyOra;
 public class MemberDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	public int memberNew(String username, String userid, String userpw, String useraddr, String userphone, String usermail) throws SQLException {
-		String sql = "INSERT INTO MEMBER (USERNUM, USERNAME, USERID, USERPW, USERADDR, USERPHONE, USERMAIL) VALUES (MEMBER_SEQ.NEXTVAL, '?', '?', '?', '?', '?', '?')";
-		int su=0;
+		String sql = "INSERT INTO MEMBER (USERNUM, USERNAME, USERID, USERPW, USERADDR, USERPHONE, USERMAIL) VALUES (MEMBER_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+		int su = 0;
 		try {
 			pstmt = MyOra.getConnection().prepareStatement(sql);
 			pstmt.setString(1, username);
@@ -30,16 +30,17 @@ public class MemberDao {
 		return su;
 	}
 	
-	public void memberUpdate(String userpw, String useraddr, String userphone, String usermail, String userid) throws SQLException {
-		String sql = "UPDATE MEMBER SET USERPW='?', USERADDR='?', USERPHONE='?', USERMAIL='?' WHERE USERID='?'";
+	public void memberUpdate(String username, String userpw, String useraddr, String userphone, String usermail, String userid) throws SQLException {
+		String sql = "UPDATE MEMBER SET USERNAME=?, USERPW=?, USERADDR=?, USERPHONE=?, USERMAIL=? WHERE USERID=?";
 
 		try {
 			pstmt = MyOra.getConnection().prepareStatement(sql);
-			pstmt.setString(1, userpw);
-			pstmt.setString(2, useraddr);
-			pstmt.setString(3, userphone);
-			pstmt.setString(4, usermail);
-			pstmt.setString(5, userid);
+			pstmt.setString(1, username);
+			pstmt.setString(2, userpw);
+			pstmt.setString(3, useraddr);
+			pstmt.setString(4, userphone);
+			pstmt.setString(5, usermail);
+			pstmt.setString(6, userid);
 			pstmt.executeUpdate();
 		} finally {
 			if(pstmt!=null)pstmt.close();
@@ -48,9 +49,9 @@ public class MemberDao {
 	}
 	
 	public void memberLevel(String userlevel, int usernum) throws SQLException {
-		String sql = "UPDATE MEMBER SET USERLEVEL='?' WHERE USERNUM=?";
-
+		String sql = "UPDATE MEMBER SET USERLEVEL=? WHERE USERNUM=?";
 		try {
+		
 			pstmt = MyOra.getConnection().prepareStatement(sql);
 			pstmt.setString(1, userlevel);
 			pstmt.setInt(2, usernum);
@@ -86,7 +87,7 @@ public class MemberDao {
 		return list;
 	}
 
-	// CSH 2019/01/10	Dao ����
+	// CSH 2019/01/10	Dao
 	
 	public ArrayList<MemberDto> userSelectAll() throws SQLException{
 		String sql="SELECT * FROM MEMBER";
@@ -183,4 +184,5 @@ public class MemberDao {
 		return result;
 	}
 		
+
 }
