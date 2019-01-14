@@ -1,4 +1,4 @@
-package com.bit.pro2.model;
+package pro2.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import jdk.nashorn.internal.ir.ForNode;
 
 public class BoardDao {
 	
@@ -25,15 +27,21 @@ public class BoardDao {
 	private ResultSet rs;
 	private Connection conn;
 		
-public ArrayList<BoardDto> selectAll(){
+public ArrayList<BoardDto> selectAll(Criteria cri){
 	ArrayList<BoardDto> list=new ArrayList<BoardDto>();
-	
-	
+	System.out.println(cri.getPage());
+	System.out.println(cri.getPageStart());
+	System.out.println(cri.getPerPageNum());
 
+	int page=cri.getPage();
+	int perPageNum=cri.getPerPageNum();
+	
 	try{
 		Class.forName(driver);
 		conn=DriverManager.getConnection(url, user, password);
-		pstmt=conn.prepareStatement("select*from board");
+		pstmt=conn.prepareStatement("select * from (select * from(select rownum rnum,qnanum,qnaname,qnapw,qnaphone,qnatitle,qnacont from board)where rnum<=?) where rnum>=?");
+		pstmt.setInt(1,perPageNum);
+		pstmt.setInt(2, page);
 		rs=pstmt.executeQuery();
 		while(rs.next()){
 			BoardDto dto=new BoardDto();
@@ -44,6 +52,7 @@ public ArrayList<BoardDto> selectAll(){
 			dto.setQnatitle(rs.getString("qnatitle"));
 			dto.setQnacont(rs.getString("qnacont"));
 			list.add(dto);
+			System.out.println("„ÖÅ„Ñπ„ÖÅ„Ñπ");
 		}
 		
 		}catch (ClassNotFoundException e) {
@@ -61,10 +70,54 @@ public ArrayList<BoardDto> selectAll(){
 	}
 	}
 	return list;
-
 	
+
 	}
 
+
+	public int selectCount(PageMaker pm){
+		int count= pm.getTotalCount();
+		count=0;
+		try{
+			Class.forName(driver);
+			conn=DriverManager.getConnection(url,user,password);
+			pstmt=conn.prepareStatement("select count(*) from board");
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				count=rs.getInt(1);
+			}
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			if(pstmt!=null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			if(conn!=null)
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		return count;
+	}
+
+		
+		
 	public int insertOne(String qnaname,int qnapw,int qnaphone,String qnatitle,String qnacont) {
 	String sql="insert into Board(qnanum,qnaname,qnapw,qnaphone,qnatitle,qnacont) values(board_seq.nextval,?,?,?,?,?)";
 	int su=0;
@@ -78,7 +131,7 @@ public ArrayList<BoardDto> selectAll(){
 		pstmt.setInt(3, qnaphone);
 		pstmt.setString(4, qnatitle);
 		pstmt.setString(5, qnacont);
-		su=pstmt.executeUpdate();	//(1) INSERT, DELETE, UPDATEµ» «‡¿« ºˆ (2) æ∆π´ ∏Æ≈œ¿Ã æ¯¿∏∏È 0
+		su=pstmt.executeUpdate();	//(1) INSERT, DELETE, UPDATEÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ (2) ÔøΩ∆πÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ 0
 	}catch (ClassNotFoundException e) {
 			e.printStackTrace();
 	}catch (SQLException e) {
