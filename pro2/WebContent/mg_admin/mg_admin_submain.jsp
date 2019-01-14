@@ -8,7 +8,7 @@
 		 << 관리자 메뉴 >>
 		 
 		회원 승인	mg_admin_admission.jsp
-		강의 관리	mg_admin_subadmin.jsp
+		강의 관리	mg_admin_submain.jsp
 		온라인상담	mg_admin_consult.jsp
 		출석 관리	mg_admin_attend.jsp (보류)
 		성적확인/수정	mg_admin_score.jsp (보류)
@@ -55,10 +55,12 @@
 			});
 		});
 
+		if(<%=request.getParameter("result")%>)alert(<%=request.getParameter("result")%>);
 	</script>
 </head>
 <%
-	ArrayList<ProgramDto> list=(ArrayList<ProgramDto>)request.getAttribute("sublist");
+	ArrayList<ProgramDto> proglist=(ArrayList<ProgramDto>)request.getAttribute("proglist");
+	ArrayList<MemberDto> teacherlist=(ArrayList<MemberDto>)request.getAttribute("teacherlist");
 %>
 <body>
 
@@ -69,7 +71,7 @@
 			<div id="h">관리자</div>
 
 			<div id="pre"><a href="mg_admission.bit">회원 승인</a></div>
-			<div id="pre"><a href="mg_subadmin.bit">강의 관리</a></div>
+			<div id="pre"><a href="mg_submain.bit">강의 관리</a></div>
 			<div id="pre"><a href="mg_consult.bit">온라인상담</a></div>
 			<!-- <div id="pre"><a href="#">출석 관리</a></div> -->
 			<!-- <div id="pre"><a href="#">성적확인/수정</a></div> -->
@@ -90,12 +92,20 @@
 						<th>인원</th>
 					</tr>
 					<%
-					for(int i=0; i<list.size(); i++){
-						ProgramDto bean=list.get(i);
+					for(int i=0; i<proglist.size(); i++){
+						ProgramDto bean=proglist.get(i);
+						String teachername =null;
+						
+						for(int j=0; j<teacherlist.size(); j++){
+							MemberDto memDto=teacherlist.get(j);
+							if(bean.getProgteach()==memDto.getUsernum()){
+								teachername = memDto.getUsername();
+							}
+						}
 					%>
 					<tr>
 						<td><%= bean.getProgname()%></td>
-						<td><%= bean.getProgteach() %></td>
+						<td><%= teachername %></td>
 						<td><%= bean.getProgroom() %></td>
 						<td><%= bean.getDatestart() %></td>
 						<td><%= bean.getDateend() %></td>

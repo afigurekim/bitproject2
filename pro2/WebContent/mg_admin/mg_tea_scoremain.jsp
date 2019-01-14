@@ -1,3 +1,6 @@
+<%@page import="com.bit.pro2.model.MemberDto"%>
+<%@page import="com.bit.pro2.model.ExamDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
@@ -21,7 +24,7 @@
 	<link rel="stylesheet" style="text/css" href="css/join.css" />
 
 	<style>
-		table{
+	table{
 			width: 600px;
 			border-collapse: collapse;
 			text-align: center;
@@ -36,6 +39,7 @@
 		table tr:HOVER{
 			background-color: rgb(220,220,220);
 		}
+
 	</style>
 	
 	<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
@@ -50,7 +54,10 @@
 
 	</script>
 </head>
-
+<% 
+	ArrayList<ExamDto> examlist=(ArrayList<ExamDto>)request.getAttribute("examlist");
+	ArrayList<MemberDto> teacherlist=(ArrayList<MemberDto>)request.getAttribute("teacherlist");
+%>
 <body>
 
 	<%@ include file="../template/header.jspf" %>
@@ -66,8 +73,34 @@
 
 		<div id="right">
 
-			<h1>[ 출석 관리 ]</h1>
-			
+			<h1>[ 성적 관리 ]</h1>
+			<table>
+				<tr>
+					<th>과목</th>
+					<th>시험날짜</th>
+					<th>시험장소</th>
+					<th>강사</th>
+				</tr>
+				<%
+				for(int i=0; i< examlist.size(); i++){
+					ExamDto bean=examlist.get(i);
+					String teachername =null;
+					
+					for(int j=0; j<teacherlist.size(); j++){
+						MemberDto memDto=teacherlist.get(j);
+						if(bean.getSubteach()==memDto.getUsernum()){
+							teachername = memDto.getUsername();
+						}
+					}
+				%>
+				<tr>
+					<td><a href="mg_scoreedit.bit?idx=<%= bean.getExamnum() %>"><%= bean.getSubname() %></a></td>
+					<td><a href="mg_scoreedit.bit?idx=<%= bean.getExamnum() %>"><%= bean.getExamdate() %></a></td>
+					<td><a href="mg_scoreedit.bit?idx=<%= bean.getExamnum() %>"><%= bean.getSubroom() %></a></td>
+					<td><a href="mg_scoreedit.bit?idx=<%= bean.getExamnum() %>"><%= teachername %></a></td>
+				</tr>
+				<%} %>
+			</table>
 		</div>
 	</div>
 

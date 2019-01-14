@@ -58,6 +58,7 @@
 			});
 		});
 
+		if(<%=request.getParameter("result")%>)alert(<%=request.getParameter("result")%>);
 	</script>
 </head>
 <%
@@ -72,7 +73,7 @@
 			<div id="h">관리자</div>
 
 			<div id="pre"><a href="mg_admission.bit">회원 승인</a></div>
-			<div id="pre"><a href="mg_subadmin.bit">강의 관리</a></div>
+			<div id="pre"><a href="mg_submain.bit">강의 관리</a></div>
 			<div id="pre"><a href="mg_consult.bit">온라인상담</a></div>
 			<!-- <div id="pre"><a href="#">출석 관리</a></div> -->
 			<!-- <div id="pre"><a href="#">성적확인/수정</a></div> -->
@@ -81,8 +82,8 @@
 
 		<div id="right">
 
-			<h1>[ 강의 관리 ]</h1>
-			<form action="mg_scsave" method="post">
+			<h1>[ 강의 개설 ]</h1>
+			<form action="mg_scsave.bit" method="post">
 				<table>
 					<tr>
 						<th>과정명</th>
@@ -92,7 +93,7 @@
 						<th>강사</th>
 						<td>
 							
-							<select>
+							<select name="progteach">
 								<%
 									for(int i=0; i<list.size();i++){
 									MemberDto bean=list.get(i);
@@ -110,16 +111,16 @@
 					</tr>
 					<tr>
 						<th>시작일</th>
-						<td><input type="date" name="progstart" id="progstart" value=""/></td>
+						<td><input type="date" name="datestart" id="datestart" value=""/></td>
 					</tr>
 					<tr>
 						<th>종료일</th>
-						<td><input type="date" name="progend" id="progend" value=""/></td>
+						<td><input type="date" name="dateend" id="dateend" value=""/></td>
 					</tr>
 					<tr>
 						<th>강의시작시간</th>
 						<td>
-							<select>
+							<select name="timestart">
 								<option value="AM 09:00">AM 09:00 </option>
 								<option value="AM 09:30">AM 09:30 </option>
 								<option value="AM 10:00">AM 10:00 </option>
@@ -134,7 +135,7 @@
 					<tr>
 						<th>강의시간</th>
 						<td>
-							<select>
+							<select name="timeend">
 								<option value=60>60 분</option>
 								<option value=120>120 분</option>
 								<option value=180>180 분</option>
@@ -146,7 +147,7 @@
 					<tr>
 						<th>교육인원</th>
 						<td>
-						<select>
+						<select name="progsize">
 								<option value=10>10 명</option>
 								<option value=15>15 명</option>
 								<option value=20>20 명</option>

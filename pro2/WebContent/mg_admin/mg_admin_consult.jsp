@@ -50,7 +50,7 @@
 			<div id="h">관리자</div>
 
 			<div id="pre"><a href="mg_admission.bit">회원 승인</a></div>
-			<div id="pre"><a href="mg_subadmin.bit">강의 관리</a></div>
+			<div id="pre"><a href="mg_submain.bit">강의 관리</a></div>
 			<div id="pre"><a href="mg_consult.bit">온라인상담</a></div>
 			<!-- <div id="pre"><a href="#">출석 관리</a></div> -->
 			<!-- <div id="pre"><a href="#">성적확인/수정</a></div> -->

@@ -16,7 +16,6 @@
 	
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>관리자 - admin</title>
@@ -44,16 +43,14 @@
 
 	</style>
 	
-	<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="./js/jquery.bxslider.js"></script>
-	
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/jquery.bxslider.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			
 			$('#menu>ul>li').mouseover(function() {
-				$(this).children('ol').stop().slideDown(100);
+				$(this).children('ol').stop().slideDown(200);
 			}).mouseout(function() {
-				$(this).children('ol').stop().slideUp(100);
+				$(this).children('ol').stop().slideUp(200);
 			});
 			
 			$("select").click(function(){
@@ -62,11 +59,10 @@
 			});
 			
 		});
-	
-	</script>
-	<script type="text/javascript">
+			
 		if(<%=request.getParameter("result")%>)alert(<%=request.getParameter("result")%>);
 	</script>
+
 </head>
 <%
 	ArrayList<MemberDto> list=(ArrayList<MemberDto>)request.getAttribute("adlist");
@@ -80,7 +76,7 @@
 			<div id="h">관리자</div>
 
 			<div id="pre"><a href="mg_admission.bit">회원 승인</a></div>
-			<div id="pre"><a href="mg_subadmin.bit">강의 관리</a></div>
+			<div id="pre"><a href="mg_submain.bit">강의 관리</a></div>
 			<div id="pre"><a href="mg_consult.bit">온라인상담</a></div>
 			<!-- <div id="pre"><a href="#">출석 관리</a></div> -->
 			<!-- <div id="pre"><a href="#">성적확인/수정</a></div> -->
