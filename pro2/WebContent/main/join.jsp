@@ -277,7 +277,8 @@
 			<input type="checkbox" name="chk_cancle" value="cancle">위의 "개인정보처리방침"에 동의합니다.
 	
 		<div class="button">
-			<button type="submit"><a href="http://localhost:8080/pro2/main/joinpage.jsp">다음</a></button>
+		<!--<a href="http://localhost:8080/pro2/joinpage.jsp">  -->
+			<button type="submit" onclick="location.href='../joinpage.jsp'">다음</button>
 			<button type="reset">취소</button>
 		</div>
 		
