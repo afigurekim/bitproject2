@@ -1,4 +1,4 @@
-package pro2.model;
+﻿package com.bit.pro2.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,7 +39,7 @@ public ArrayList<BoardDto> selectAll(Criteria cri){
 	try{
 		Class.forName(driver);
 		conn=DriverManager.getConnection(url, user, password);
-		pstmt=conn.prepareStatement("select * from (select * from(select rownum rnum,qnanum,qnaname,qnapw,qnaphone,qnatitle,qnacont from board)where rnum<=?) where rnum>=?");
+		pstmt=conn.prepareStatement("select * from (select * from(select rownum rnum,qnanum,qnaname,qnapw,qnaphone,qnatitle,qnacont,qnaresp from board)where rnum<=?) where rnum>=?");
 		pstmt.setInt(1,perPageNum);
 		pstmt.setInt(2, page);
 		rs=pstmt.executeQuery();
@@ -51,8 +51,8 @@ public ArrayList<BoardDto> selectAll(Criteria cri){
 			dto.setQnaphone(rs.getInt("qnaphone"));
 			dto.setQnatitle(rs.getString("qnatitle"));
 			dto.setQnacont(rs.getString("qnacont"));
+			dto.setQnaresp(rs.getString("qnaresp"));
 			list.add(dto);
-			System.out.println("ㅁㄹㅁㄹ");
 		}
 		
 		}catch (ClassNotFoundException e) {
@@ -75,9 +75,9 @@ public ArrayList<BoardDto> selectAll(Criteria cri){
 	}
 
 
-	public int selectCount(PageMaker pm){
-		int count= pm.getTotalCount();
-		count=0;
+	public int countPaging(Criteria cri){
+		
+		int count=0;
 		try{
 			Class.forName(driver);
 			conn=DriverManager.getConnection(url,user,password);
@@ -113,6 +113,7 @@ public ArrayList<BoardDto> selectAll(Criteria cri){
 					e.printStackTrace();
 				}
 		}
+	//	return session.selectOne(".countPaging",cri);
 		return count;
 	}
 
@@ -186,7 +187,6 @@ public ArrayList<BoardDto> selectAll(Criteria cri){
 	
 			public int updateOne(String qnatitle,String qnacont,int qnanum){ 
 			 		int su=0; 
-			 		System.out.print("ssss");
 			 		String sql="UPDATE board SET qnatitle=?,qnacont=? WHERE qnanum=?"; 
 			 		try { 
 			 			Class.forName(driver); 
