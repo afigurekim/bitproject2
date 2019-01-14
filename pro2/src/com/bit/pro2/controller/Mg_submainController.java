@@ -15,25 +15,28 @@ import com.bit.pro2.model.MemberDto;
 import com.bit.pro2.model.ProgramDao;
 import com.bit.pro2.model.ProgramDto;
 
-public class Mg_subadminController extends HttpServlet{
-//	/mg_subadmin.bit
+public class Mg_submainController extends HttpServlet{
+//	/mg_submain.bit
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		ArrayList<ProgramDto> list;
+		ProgramDao progDao = new ProgramDao();
+		MemberDao memDao = new MemberDao();
+		
 		try {
-			ProgramDao dao = new ProgramDao();
-			list = dao.progSelectAll();
+			ArrayList<ProgramDto> proglist = progDao.progSelectAll();
+			ArrayList<MemberDto> teacherlist = memDao.userSelectTeacher();
 			
-			req.setAttribute("sublist", list);
+			req.setAttribute("proglist", proglist);
+			req.setAttribute("teacherlist", teacherlist);
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher rd = req.getRequestDispatcher("/mg_admin/mg_admin_subadmin.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/mg_admin/mg_admin_submain.jsp");
 		rd.forward(req, resp);
 	}
 }

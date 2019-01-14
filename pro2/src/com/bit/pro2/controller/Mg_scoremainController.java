@@ -10,31 +10,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bit.pro2.model.ExamDao;
+import com.bit.pro2.model.ExamDto;
 import com.bit.pro2.model.MemberDao;
 import com.bit.pro2.model.MemberDto;
-import com.bit.pro2.model.ProgramDao;
-import com.bit.pro2.model.ProgramDto;
 
-public class Mg_subadminController extends HttpServlet{
-//	/mg_subadmin.bit
+public class Mg_scoremainController extends HttpServlet{
+//	/mg_scoremain.bit
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-
-		ArrayList<ProgramDto> list;
+		
+		ExamDao examdao=new ExamDao();
+		MemberDao memDao = new MemberDao();
+		
 		try {
-			ProgramDao dao = new ProgramDao();
-			list = dao.progSelectAll();
+			ArrayList<ExamDto> examlist = examdao.examSelectall();
+			ArrayList<MemberDto> teacherlist = memDao.userSelectTeacher();
 			
-			req.setAttribute("sublist", list);
+			req.setAttribute("examlist", examlist);
+			req.setAttribute("teacherlist", teacherlist);
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		RequestDispatcher rd = req.getRequestDispatcher("/mg_admin/mg_admin_subadmin.jsp");
+	
+		RequestDispatcher rd = req.getRequestDispatcher("/mg_admin/mg_tea_scoremain.jsp");
 		rd.forward(req, resp);
 	}
-}
 
+}
