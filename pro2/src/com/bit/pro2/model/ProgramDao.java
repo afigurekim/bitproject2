@@ -7,24 +7,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.bit.pro2.util.MyOra;
+
 public class ProgramDao {
-	private final String driver="oracle.jdbc.OracleDriver";
-	private final String url="jdbc:oracle:thin:@localhost:1521:xe";
-	private final String user="scott";
-	private final String password="tiger";
-	
-	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
-	public ArrayList<ProgramDto> progSelectAll(){
+	public ArrayList<ProgramDto> progSelectAll() throws SQLException{
 		String sql="SELECT * FROM PROGRAM";
 		ArrayList<ProgramDto> proglist = new ArrayList<ProgramDto>();
 		
 		try {
-			Class.forName(driver);
-			conn=DriverManager.getConnection(url, user, password);
-			pstmt=conn.prepareStatement(sql);
+			pstmt= MyOra.getConnection().prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				ProgramDto dto=new ProgramDto();
@@ -41,21 +35,37 @@ public class ProgramDao {
 
 				proglist.add(dto);
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} finally {
-			try {
 				if(rs!=null) rs.close();
 				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				if(MyOra.getConnection()!=null)MyOra.getConnection().close();
 		}
 		return proglist;
 
 	}
 	
+	public int progInsertOne( ProgramDto dto ) throws SQLException{
+		String sql="INSERT INTO PROGRAM VALUES (PROGRAM_SEQ.NEXTVAL,?,?,?,?,?,?,?,?)";
+
+		int result=0;
+		
+		try {
+			pstmt = MyOra.getConnection().prepareStatement(sql);
+			pstmt.setString(1, dto.getProgname());
+			pstmt.setInt(2, dto.getProgteach());
+			pstmt.setString(3, dto.getProgroom());
+			pstmt.setDate(4, dto.getDatestart());
+			pstmt.setDate(5, dto.getDateend());
+			pstmt.setString(6, dto.getTimestart());
+			pstmt.setInt(7, dto.getTimeend());
+			pstmt.setInt(8, dto.getProgsize());
+			result=pstmt.executeUpdate();
+		} finally {
+			if(pstmt!=null)pstmt.close();
+			if(MyOra.getConnection()!=null)MyOra.getConnection().close();
+		}
+		
+		return result;
+	}
+		
 }
