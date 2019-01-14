@@ -1,4 +1,4 @@
-package com.bit.pro2.controller;
+ï»¿package com.bit.pro2.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bit.pro2.model.BoardDao;
 import com.bit.pro2.model.BoardDto;
-
+import com.bit.pro2.model.Criteria;
+import com.bit.pro2.model.PageMaker;
 
 
 public class ListController extends HttpServlet{
@@ -20,14 +21,22 @@ public class ListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		System.out.print("¸®½ºÆ®ÄÁÆ®·Ñ·¯");
+		System.out.print("ì‹¤í–‰í•˜ê¸°");
+		
+		Criteria cri=new Criteria();
+		PageMaker pm=new PageMaker();
+		
+		pm.setCri(cri);
+		pm.setTotalCount(131);
+		
+		req.setAttribute("pagemaker", pm);
 		
 		
-		//database ½ÇÇà ¹× °á°ú
+		//database ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 		BoardDao bean=new BoardDao();
-		ArrayList<BoardDto>list=bean.selectAll();
+		ArrayList<BoardDto>list=bean.selectAll(cri);
 		
-		//request scope °ª Àü´Þ
+		//request scope ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		req.setAttribute("alist", list);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("list.jsp"); 
