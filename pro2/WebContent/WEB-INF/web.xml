@@ -40,8 +40,8 @@
   	<servlet-class>com.bit.pro2.controller.Mg_admissionController</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>mg_subadmin</servlet-name>
-  	<servlet-class>com.bit.pro2.controller.Mg_subadminController</servlet-class>
+  	<servlet-name>mg_submain</servlet-name>
+  	<servlet-class>com.bit.pro2.controller.Mg_submainController</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>mg_subcreate</servlet-name>
@@ -56,13 +56,21 @@
   	<servlet-class>com.bit.pro2.controller.Mg_attendController</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>mg_score</servlet-name>
-  	<servlet-class>com.bit.pro2.controller.Mg_scoreController</servlet-class>
+  	<servlet-name>mg_scoremain</servlet-name>
+  	<servlet-class>com.bit.pro2.controller.Mg_scoremainController</servlet-class>
+  </servlet>  
+  <servlet>
+  	<servlet-name>mg_scoreedit</servlet-name>
+  	<servlet-class>com.bit.pro2.controller.Mg_scoreeditController</servlet-class>
   </servlet>  
   <servlet>
   	<servlet-name>mg_adsave</servlet-name>
   	<servlet-class>com.bit.pro2.controller.Mg_adsaveController</servlet-class>
-  </servlet> 
+  </servlet>
+  <servlet>
+  	<servlet-name>mg_scsave</servlet-name>
+  	<servlet-class>com.bit.pro2.controller.Mg_scsaveController</servlet-class>
+  </servlet>  
  
  
   <servlet-mapping>
@@ -99,8 +107,8 @@
   	<url-pattern>/mg_admission.bit</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>mg_subadmin</servlet-name>
-  	<url-pattern>/mg_subadmin.bit</url-pattern>
+  	<servlet-name>mg_submain</servlet-name>
+  	<url-pattern>/mg_submain.bit</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>mg_subcreate</servlet-name>
@@ -115,12 +123,20 @@
   	<url-pattern>/mg_attend.bit</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>mg_score</servlet-name>
-  	<url-pattern>/mg_score.bit</url-pattern>
+  	<servlet-name>mg_scoremain</servlet-name>
+  	<url-pattern>/mg_scoremain.bit</url-pattern>
   </servlet-mapping>  
+  <servlet-mapping>
+  	<servlet-name>mg_scoreedit</servlet-name>
+  	<url-pattern>/mg_scoreedit.bit</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>mg_adsave</servlet-name>
   	<url-pattern>/mg_adsave.bit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>mg_scsave</servlet-name>
+  	<url-pattern>/mg_scsave.bit</url-pattern>
   </servlet-mapping>
     
 </web-app>
