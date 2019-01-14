@@ -21,7 +21,6 @@ public class Mg_admissionController extends HttpServlet{
 			throws ServletException, IOException {
 		
 		MemberDao dao = new MemberDao();
-		System.out.println("--Mg_admissionController--");
 		try {
 			ArrayList<MemberDto> list = dao.userSelectAll();
 			req.setAttribute("adlist", list);
