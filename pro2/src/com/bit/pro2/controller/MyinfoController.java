@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bit.pro2.model.MemberDao;
 import com.bit.pro2.model.MemberDto;
@@ -17,7 +18,10 @@ public class MyinfoController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String userid = req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String userid = (String) session.getAttribute("id");
+		String pwchk = null;
+		session.setAttribute("pwchk", pwchk);
 		
 		MemberDao dao = new MemberDao();
 		

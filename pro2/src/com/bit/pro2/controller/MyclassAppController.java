@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bit.pro2.model.MemberDao;
 import com.bit.pro2.model.ProgramDao;
@@ -16,7 +17,9 @@ public class MyclassAppController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String userid = req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String userid = (String) session.getAttribute("id");
+		
 		int userprog = Integer.parseInt(req.getParameter("userprog"));
 		int appnum = Integer.parseInt(req.getParameter("appnum"));
 		MemberDao memberdao = new MemberDao();
@@ -38,7 +41,10 @@ public class MyclassAppController extends HttpServlet {
 			}
 		}
 		
-		resp.sendRedirect("myclass.bit?userid="+userid+"&app=true");
+		String app = "true";
+		session.setAttribute("app", app);
+		
+		req.getRequestDispatcher("/mypage/myclass.jsp").forward(req, resp);
 	}
 	
 }

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.bit.pro2.model.MemberDto" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,14 +71,14 @@
 </script>
 </head>
 <body>
-	<% String userid = request.getParameter("userid"); %>
 	<%@ include file="../template/header.jspf" %>
 
 	<%@ include file="../template/mypage.jspf" %>
-	
+	<% String userid = (String) session.getAttribute("id"); %>
 	<p><strong>개인정보수정</strong></p>
-	<% if(request.getParameter("pwchk")==null || request.getParameter("pwchk").equals("true")){}
-	else if(request.getParameter("pwchk").equals("false")) { %><div>*비밀번호가 일치하지 않습니다. 비밀번호를 동일하게 입력해주세요.</div> <% } %>
+	<% String pwchk = (String) session.getAttribute("pwchk");
+	if(pwchk==null || pwchk.equals("true")){}
+	else if(pwchk.equals("false")) { %><div>*비밀번호가 일치하지 않습니다. 비밀번호를 동일하게 입력해주세요.</div> <% } %>
 		<form action="myupdate.bit" method="post">
 		<div><label>ID</label>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<%= request.getParameter("userid") %><input type="hidden" name="userid" value="<%= request.getParameter("userid") %>"/></div>
 		<%

@@ -5,6 +5,7 @@
 <%@ page import ="java.text.SimpleDateFormat" %>
 <%@ page import="com.bit.pro2.model.MemberDto" %>
 <%@ page import="com.bit.pro2.model.ProgramDto" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,14 +61,15 @@
 </script>
 </head>
 <body>
-	<% String userid = request.getParameter("userid"); %>
 	<%@ include file="../template/header.jspf" %>
 
 	<%@ include file="../template/mypage.jspf" %>
 	
 	<p><strong>수강신청</strong></p>
-	<% if(request.getParameter("app")==null || request.getParameter("app").equals("false")){}
-	else if(request.getParameter("app").equals("true")) { %><div><strong>수강신청이 성공적으로 완료되었습니다.</strong></div> <% } %>
+	<% String userid = (String) session.getAttribute("id");
+	String app = (String) session.getAttribute("app");
+	if(app==null || app.equals("false")){}
+	else if(app.equals("true")) { %><div><strong>수강신청이 성공적으로 완료되었습니다.</strong></div> <% } %>
 	<% 
 		MemberDto membean = (MemberDto) request.getAttribute("membean");
 		int userprog = membean.getUserprog();

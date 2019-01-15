@@ -4,6 +4,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import ="java.text.SimpleDateFormat" %>
 <%@ page import="com.bit.pro2.model.StuscoreDto" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,6 @@
 </script>
 </head>
 <body>
-	<% String userid = request.getParameter("userid"); %>
 	<%@ include file="../template/header.jspf" %>
 
 	<%@ include file="../template/mypage.jspf" %>

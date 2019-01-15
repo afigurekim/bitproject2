@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bit.pro2.model.MemberDao;
 
@@ -16,12 +17,17 @@ public class MyupdateController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		HttpSession session = req.getSession();
 		req.setCharacterEncoding("UTF-8");
 		
 		String userpw = req.getParameter("userpw");
 		String userpwchk = req.getParameter("userpwchk");
+		
+		String pwchk = null;
 		if(!userpw.equals(userpwchk)){
-			resp.sendRedirect("myinfo.bit?userid="+req.getParameter("userid")+"&pwchk=false");
+			pwchk = "false";
+			session.setAttribute("pwchk", pwchk);
+			req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 		}else{
 			String username = req.getParameter("username");
 			String useraddr;
@@ -42,7 +48,9 @@ public class MyupdateController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			resp.sendRedirect("myinfo.bit?userid="+userid+"&pwchk=true");
+			pwchk = "true";
+			session.setAttribute("pwchk", pwchk);
+			req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 		}
 	}
 	

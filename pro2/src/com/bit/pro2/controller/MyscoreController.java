@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bit.pro2.model.StuscoreDao;
 import com.bit.pro2.model.StuscoreDto;
@@ -17,7 +18,8 @@ public class MyscoreController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String userid = req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String userid = (String) session.getAttribute("id");
 		
 		StuscoreDao dao = new StuscoreDao();
 		

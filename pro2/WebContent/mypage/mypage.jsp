@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.bit.pro2.model.CheckinDto" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,11 +40,10 @@
 </script>
 </head>
 <body>
-	<% String userid = request.getParameter("userid"); %>
 	<%@ include file="../template/header.jspf" %>
 
 	<%@ include file="../template/mypage.jspf" %>
-	
+	<% String userid = (String) session.getAttribute("id"); %>
 	<p><strong><%= userid %>님 로그인을 환영합니다!</strong></p>
 	
 	<p><strong>출석</strong></p>
@@ -56,11 +56,9 @@
 		<div>퇴실 처리 되었습니다.</div>
 		<%  } %>
 		<form action="mypagein.bit" method="post">
-			<input type="hidden" name="userid" value="<%= userid %>" />
 			<input type="submit" class="btn" value="입실" />
 		</form>
 		<form action="mypageout.bit" method="post">
-			<input type="hidden" name="userid" value="<%= userid %>" />
 			<input type="submit" class="btn" value="퇴실" />
 		</form>
 	</div>

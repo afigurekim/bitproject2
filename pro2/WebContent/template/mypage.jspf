@@ -4,11 +4,11 @@
 		<div id="left">
 			<div id="h">My Page</div>
 			
-			<div id="pre"><a href="mypage.jsp">출석</a></div>
-			<div id="pre"><a href="myclass.jsp">수강신청</a></div>
-			<div id="pre"><a href="myscore.jsp">성적확인</a></div>
-			<div id="pre"><a href="mycheckin.jsp">출석확인</a></div>
-			<div id="pre"><a href="myinfo.jsp">개인정보수정</a></div>
+			<div id="pre"><a href="mypage.bit">출석</a></div>
+			<div id="pre"><a href="myclass.bit">수강신청</a></div>
+			<div id="pre"><a href="myscore.bit">성적확인</a></div>
+			<div id="pre"><a href="mycheckin.bit">출석확인</a></div>
+			<div id="pre"><a href="myinfo.bit">개인정보수정</a></div>
 		</div>
 
 		<div id="right">

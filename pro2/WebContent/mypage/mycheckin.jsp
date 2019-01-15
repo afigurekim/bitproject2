@@ -4,6 +4,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import ="java.text.SimpleDateFormat" %>
 <%@ page import="com.bit.pro2.model.CheckinDto" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,11 +48,10 @@
 </script>
 </head>
 <body>
-	<% String userid = request.getParameter("userid"); %>
 	<%@ include file="../template/header.jspf" %>
 
 	<%@ include file="../template/mypage.jspf" %>
-	
+	<% String userid = (String) session.getAttribute("id"); %>
 	<p><strong>출석확인</strong></p>
 	<p><strong><%= userid %>님의 출석내역</strong></p>
 	<div>
