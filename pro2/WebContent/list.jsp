@@ -124,19 +124,25 @@
  			<th>번호</th> 
  			<th>이름</th> 
  			<th>휴대폰번호</th> 
- 			<th>제목</th> 
+ 			<th>제목</th>
+			<th>답변</th>					<!-- CSH 2019/01/15 -->
  	
  		</tr> 
 		<% 
  		for(int i=0; i<list.size();i++){  
- 		BoardDto bean=list.get(i); 
+	 		BoardDto bean=list.get(i);
+	 		
+	 		String strcheck = "";			/* CSH 2019/01/15 */
+	 		if(bean.getQnaresp()!=null){
+				strcheck="답변완료";
+			}
  		%> 
  		<tr> 
  			<td><a href="detail.bit?qnanum=<%=bean.getQnanum() %>"><%=bean.getQnanum() %></a></td> 
  			<td><a href="detail.bit?qnanum=<%=bean.getQnanum() %>"><%=bean.getQnaname() %></a></td> 
  			<td><a href="detail.bit?qnanum=<%=bean.getQnanum() %>"><%=bean.getQnaphone() %></a></td> 
  			<td><a href="detail.bit?qnanum=<%=bean.getQnanum()%>"><%=bean.getQnatitle() %></a></td> 
- 		
+ 			<td><a href="mg_consultdetail.bit?qnanum=<%=bean.getQnanum()%>"><%=strcheck %></a></td>			<!-- CSH 2019/01/15 -->
  		</tr> 
  		<%} %> 
  		
