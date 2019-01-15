@@ -183,6 +183,30 @@ public class MemberDao {
 		}
 		return result;
 	}
+	
+	public MemberDto memberGetOne(String userid) throws SQLException {
+		MemberDto bean = new MemberDto();
+		String sql = "SELECT USERNAME, USERPW, USERADDR, USERPHONE, USERMAIL, USERLEVEL FROM MEMBER WHERE USERID=?";
+		
+		try {
+			pstmt = MyOra.getConnection().prepareStatement(sql);
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				bean.setUsername(rs.getString("username"));
+				bean.setUserpw(rs.getString("userpw"));
+				bean.setUseraddr(rs.getString("useraddr"));
+				bean.setUserphone(rs.getString("userphone"));
+				bean.setUsermail(rs.getString("usermail"));
+				bean.setUserlevel(rs.getString("userlevel"));
+			}
+		} finally {
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(MyOra.getConnection()!=null)MyOra.getConnection().close();
+		}
+		return bean;
+	}
 		
 	// KDH 2019-01-14 (updateProgram, selectProgram)
 	
