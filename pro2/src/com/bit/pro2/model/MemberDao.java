@@ -220,4 +220,26 @@ public class MemberDao {
 		return bean;
 	}
 
+	public int memberlogin(String userid, String userpw) throws SQLException{
+		String sql="select count(*) as cnt from member where userid=? and userpw=?";
+			int su=0;
+		try{
+			pstmt = MyOra.getConnection().prepareStatement(sql);
+			pstmt.setString(1, userid);
+			pstmt.setString(2, userpw);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				su=rs.getInt("cnt");
+				System.out.println(su);
+			}
+		}finally{
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(MyOra.getConnection()!=null)MyOra.getConnection().close();
+	
+		}
+		
+		return su;
+	}
+	
 }
