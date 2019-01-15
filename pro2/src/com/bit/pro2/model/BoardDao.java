@@ -165,6 +165,7 @@ public ArrayList<BoardDto> selectAll(Criteria cri){
 				dto.setQnaphone(rs.getInt("qnaphone"));
 				dto.setQnacont(rs.getString("qnacont"));
 				dto.setQnatitle(rs.getString("qnatitle"));
+				dto.setQnaresp(rs.getString("qnaresp"));
 			} 
 			 		} catch (ClassNotFoundException e) { 
 			 			e.printStackTrace(); 
