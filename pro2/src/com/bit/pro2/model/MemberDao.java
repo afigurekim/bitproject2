@@ -1,4 +1,4 @@
-﻿package com.bit.pro2.model;
+package com.bit.pro2.model;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -184,5 +184,40 @@ public class MemberDao {
 		return result;
 	}
 		
+	// KDH 2019-01-14 (updateProgram, selectProgram)
+	
+	public void updateProgram(int userprog, String userid) throws SQLException {
+		String sql="UPDATE MEMBER SET USERPROG=? WHERE USERID=?";
+		
+		try {
+			pstmt = MyOra.getConnection().prepareStatement(sql);
+			pstmt.setInt(1, userprog);
+			pstmt.setString(2, userid);
+			pstmt.executeUpdate();
+		} finally {
+			if(pstmt!=null)pstmt.close();
+			if(MyOra.getConnection()!=null)MyOra.getConnection().close();
+		}
+	}
+	
+	public MemberDto selectProgram(String userid) throws SQLException {
+		MemberDto bean = new MemberDto();
+		String sql = "SELECT USERPROG FROM MEMBER WHERE USERID=?";
+		
+		try {
+			pstmt = MyOra.getConnection().prepareStatement(sql);
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				bean.setUserprog(rs.getInt("userprog"));
+			}
+		} finally {
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(MyOra.getConnection()!=null)MyOra.getConnection().close();
+		}
+		
+		return bean;
+	}
 
 }

@@ -3,7 +3,7 @@ package com.bit.pro2.model;
 import java.sql.Date;
 
 public class ProgramDto {
-	private int prognum, progteach, timeend, progsize;
+	private int prognum, progteach, timeend, progsize, progcnt; // KDH 2019-01-14 (progcnt Ãß°¡)
 	private String progname, progroom, timestart;
 	private Date datestart, dateend;
 	public int getPrognum() {
@@ -29,6 +29,12 @@ public class ProgramDto {
 	}
 	public void setProgsize(int progsize) {
 		this.progsize = progsize;
+	}
+	public int getProgcnt() {
+		return progcnt;
+	}
+	public void setProgcnt(int progcnt) {
+		this.progcnt = progcnt;
 	}
 	public String getProgname() {
 		return progname;
