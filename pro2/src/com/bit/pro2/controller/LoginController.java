@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bit.pro2.model.MemberDao;
+import com.bit.pro2.model.MemberDto;
 
 
 public class LoginController extends HttpServlet{
@@ -20,18 +21,22 @@ public class LoginController extends HttpServlet{
 				throws ServletException, IOException {
 		
 	
-	System.out.println("dddd");
-	
 	req.setCharacterEncoding("utf-8");
 	String id=req.getParameter("userid");
 	String pw=req.getParameter("userpw");
 	
 	MemberDao dao=new MemberDao();
+	MemberDto memDto = new MemberDto();		/*CSH 2019/01/15*/
 	
+	String level ="";
 	int su=0;	
 	
 	try {
 		su = dao.memberlogin(id,pw);
+		
+		memDto = dao.memberGetOne(id);		/*CSH 2019/01/15 session 에 level 추가 사용*/
+		level =memDto.getUserlevel();
+		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -40,6 +45,7 @@ public class LoginController extends HttpServlet{
 	
 	if(su==1){
 		session.setAttribute("id", id);
+		session.setAttribute("level", level);		/*CSH 2019/01/15*/
 	}
 	resp.setContentType("application/json; charset=\"utf-8\"");
 	resp.setCharacterEncoding("utf-8");
@@ -49,8 +55,6 @@ public class LoginController extends HttpServlet{
 	out.close();
 	}
 }
-		
-
 	
 	
 	
