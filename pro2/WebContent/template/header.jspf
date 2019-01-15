@@ -5,10 +5,13 @@
 		<% 
 			String str =null;
 			String headUrl=request.getRequestURL().toString();
-			System.out.println(headUrl);
+			/* System.out.println(headUrl); */
 			
 			if(headUrl.equals("http://localhost:8080/pro2/main.jsp")
 					||headUrl.equals("http://localhost:8080/pro2/list.jsp")
+					||headUrl.equals("http://localhost:8080/pro2/mg_admin/mg_admin_admission.jsp")
+					||headUrl.equals("http://localhost:8080/pro2/mg_admin/mg_admin_submain.jsp")
+					||headUrl.equals("http://localhost:8080/pro2/mg_admin/mg_admin_consult.jsp")
 					){
 					str="";
 				}else{
@@ -60,13 +63,24 @@
           	<%}else{ %>
             <a href="#" id="logout"><strong>로그아웃</strong></a>
              <%}%>
-             
-             <%if(session.getAttribute("id")==null) {%>
-			<a href="http://localhost:8080/pro2/main/join.jsp" id="join"><strong>회원가입</strong></a>
-			<%}else{ %>
-			<a href="#" id="mypage"><strong>페이지</strong></a>
+          
+          	<%		/* CSH 2019/01/15 session에 level 사용하여 메뉴 선택이동 하게 수정*/
+          	String strlevel = null;
+          	
+          	if(session.getAttribute("id")!=null){
+          		strlevel = session.getAttribute("level").toString();
+          	}
+          	%>   
+          	
+          	<%if(session.getAttribute("id")==null) {%>
+				<a href="http://localhost:8080/pro2/main/join.jsp" id="join"><strong>회원가입</strong></a>
+			<%}else if(strlevel.equals("teacher")) {%>
+				<a href="mg_attend.bit" id="mypage"><strong>강사</strong></a>	<!-- CSH 2019/01/15 -->
+			<%}else if(strlevel.equals("admin")) {%>
+				<a href="mg_admission.bit" id="mypage"><strong>관리자</strong></a>
+			<%}else {%>
+			<a href="mypage.bit" id="mypage"><strong>페이지</strong></a>
 			  <%}%>
+			  
 			</div>
 	</div>
-
-	
