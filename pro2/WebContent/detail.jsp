@@ -143,8 +143,17 @@
  	
  		<table id="stable">
  			<tr >
+				<%
+ 					/* CSH 2019/01/15 */
+	 				String strreq = "";
+	 				if(dto.getQnaresp()==null){
+	 					strreq = "답변 대기중 입니다.";
+	 				}else{
+	 					strreq = dto.getQnaresp();
+	 				}
+	 			%>
 				<td id="firstreq">답글</td>
-				<td id="secondreq"><textarea type="text" name="reqcont" id="reqcont" readonly="readonly"></textarea></td>
+				<td id="secondreq"><textarea type="text" name="reqcont" id="reqcont" readonly="readonly"><%=strreq %></textarea></td>
 			</tr>
 		</table>
  	<div>
