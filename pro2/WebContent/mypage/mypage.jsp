@@ -49,12 +49,24 @@
 	<p><strong>출석</strong></p>
 		<% 
 			CheckinDto bean = (CheckinDto) request.getAttribute("bean"); 
-			if(bean!=null && bean.getCheckin()!=null){ %>
+			if(bean!=null && bean.getCheckin()!=null){ 
+				if(bean.getCheckin().equals("999999")){ %>
+		<div>이미 입실한 기록이 있습니다.</div>
+		<%		} else { %>
 		<div>입실 처리 되었습니다.</div>
-		<% 	} 
-			if(bean!=null && bean.getCheckout()!=null){ %>
+		<% 		}
+			} 
+			if(bean!=null && bean.getCheckout()!=null){ 
+				if(bean.getCheckout().equals("888888")){ %>
+		<div>이미 퇴실한 기록이 있습니다.</div>
+		<%			bean.setCheckout(null); 
+				} else if(bean.getCheckout().equals("999999")){ %>
+		<div>입실한 기록이 없어 퇴실되지 않았습니다.</div>
+		<%			bean.setCheckout(null); 
+		 		} else { %>
 		<div>퇴실 처리 되었습니다.</div>
-		<%  } %>
+		<% 		}	
+			} %>
 		<form action="mypagein.bit" method="post">
 			<input type="submit" class="btn" value="입실" />
 		</form>
