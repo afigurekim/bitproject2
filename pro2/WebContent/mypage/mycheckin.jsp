@@ -18,6 +18,21 @@
 	  		width: 960px;
 	  		height: 1050px; 
 	  		}
+	  		
+	table{
+			width: 80%;
+			border-collapse: collapse;
+			border: 2px solid black;
+	}
+	table th, td{
+			border: 2px solid black;
+	}
+	table th{
+			background-color: LightGray;
+	}
+	table td{
+			text-align: center;
+	}
 
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
@@ -32,10 +47,11 @@
 </script>
 </head>
 <body>
-	<%@ include file="template/header.jspf" %>
-
-	<%@ include file="template/mypage.jspf" %>
 	<% String userid = request.getParameter("userid"); %>
+	<%@ include file="../template/header.jspf" %>
+
+	<%@ include file="../template/mypage.jspf" %>
+	
 	<p><strong>출석확인</strong></p>
 	<p><strong><%= userid %>님의 출석내역</strong></p>
 	<div>
@@ -44,6 +60,7 @@
 				<th>출석일</th>
 				<th>입실</th>
 				<th>퇴실</th>
+				<th>비고</th>
 			</tr>
 			<%
 			ArrayList<CheckinDto> list = (ArrayList<CheckinDto>)request.getAttribute("alist");
@@ -51,6 +68,10 @@
 				String datebean = bean.getCheckdate();
 				String inbean = bean.getCheckin();
 				String outbean = bean.getCheckout();
+				String chkstatus = null;
+				
+				int innum = Integer.parseInt(inbean);
+				int outnum = Integer.parseInt(outbean);
 				
 				Date datedate = new SimpleDateFormat("yyyyMMdd").parse(datebean);
 				Date indate = new SimpleDateFormat("HHmmss").parse(inbean);
@@ -59,11 +80,25 @@
 				String datestring = new SimpleDateFormat("yyyy/MM/dd").format(datedate);
 				String instring = new SimpleDateFormat("HH:mm:ss").format(indate);
 				String outstring = new SimpleDateFormat("HH:mm:ss").format(outdate);
+				
+				if(innum<94000 && outnum>182000){ chkstatus="출석"; }
+				else if(innum<94000 && outnum<=182000 && outnum>143000){ chkstatus="조퇴"; }
+				else if(innum<94000 && outnum<=143000){ chkstatus="결석"; }
+				else if(innum>=94000 && innum<143000 && outnum>182000){ chkstatus="지각"; }
+				else if(innum>=94000 && innum<143000 && outnum<=182000){
+					String[] inArray = instring.split(":", 3);
+					String[] outArray = outstring.split(":", 3);
+					int inMins = (Integer.parseInt(inArray[0])*60)+(Integer.parseInt(inArray[1]));
+					int outMins = (Integer.parseInt(outArray[0])*60)+(Integer.parseInt(outArray[1]));
+					if((outMins-inMins)>370){ chkstatus="지각조퇴"; } else { chkstatus="결석"; }
+				}
+				else if(innum>=143000){ chkstatus="결석"; }
 			%>
 			<tr>
 				<td><%= datestring %></td>
 				<td><%= instring %></td>
 				<td><%= outstring %></td>
+				<td><%= chkstatus %></td>
 			</tr>
 			<% } %>
 		</table>
@@ -72,6 +107,6 @@
 	
 	</div>
 
-	<%@ include file="template/footer.jspf" %>
+	<%@ include file="../template/footer.jspf" %>
 </body>
 </html>

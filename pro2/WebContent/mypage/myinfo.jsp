@@ -70,9 +70,10 @@
 </script>
 </head>
 <body>
-	<%@ include file="template/header.jspf" %>
+	<% String userid = request.getParameter("userid"); %>
+	<%@ include file="../template/header.jspf" %>
 
-	<%@ include file="template/mypage.jspf" %>
+	<%@ include file="../template/mypage.jspf" %>
 	
 	<p><strong>개인정보수정</strong></p>
 	<% if(request.getParameter("pwchk")==null || request.getParameter("pwchk").equals("true")){}
@@ -169,6 +170,6 @@
 	
 	</div>
 	
-	<%@ include file="template/footer.jspf" %>
+	<%@ include file="../template/footer.jspf" %>
 </body>
 </html>

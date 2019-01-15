@@ -39,32 +39,22 @@
 </script>
 </head>
 <body>
-	<%@ include file="template/header.jspf" %>
-
-	<%@ include file="template/mypage.jspf" %>
 	<% String userid = request.getParameter("userid"); %>
+	<%@ include file="../template/header.jspf" %>
+
+	<%@ include file="../template/mypage.jspf" %>
+	
 	<p><strong><%= userid %>님 로그인을 환영합니다!</strong></p>
 	
 	<p><strong>출석</strong></p>
 		<% 
 			CheckinDto bean = (CheckinDto) request.getAttribute("bean"); 
-			if(bean!=null && bean.getCheckin()!=null){
-				int checkin = Integer.parseInt(bean.getCheckin());
-				if(checkin>93000 && checkin<=143000){ %>
-		<div>지각 처리 되었습니다.</div>
-		<% 		} else if(checkin>143000) { %>
-		<div>결석 처리 되었습니다.</div>
-		<% 		}
-			} 
-			if(bean!=null && bean.getCheckout()!=null){
-				int checkout = Integer.parseInt(bean.getCheckout());
-				if(checkout<182000 && checkout>=133000){ %>
-		<div>조퇴 처리 되었습니다.</div>
-		<%		} else if(checkout<133000) { %>
-		<div>결석 처리 되었습니다.</div>
-		<%		} else if(checkout==999999) { %>
-		<div>입실 기록이 없습니다.</div>
-		<% } } %>
+			if(bean!=null && bean.getCheckin()!=null){ %>
+		<div>입실 처리 되었습니다.</div>
+		<% 	} 
+			if(bean!=null && bean.getCheckout()!=null){ %>
+		<div>퇴실 처리 되었습니다.</div>
+		<%  } %>
 		<form action="mypagein.bit" method="post">
 			<input type="hidden" name="userid" value="<%= userid %>" />
 			<input type="submit" class="btn" value="입실" />
@@ -77,6 +67,6 @@
 	
 	</div>
 		
-	<%@ include file="template/footer.jspf" %>
+	<%@ include file="../template/footer.jspf" %>
 </body>
 </html>
