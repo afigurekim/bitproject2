@@ -54,8 +54,18 @@
                 </ul>
              
              <div id="in">   
-             <a href="#" id="log"><strong>로그인</strong></a>
+         
+         	<%if(session.getAttribute("id")==null) {%>
+            <a href="http://localhost:8080/pro2/login.jsp" id="log"><strong>로그인</strong></a>
+          	<%}else{ %>
+            <a href="#" id="logout"><strong>로그아웃</strong></a>
+             <%}%>
+             
+             <%if(session.getAttribute("id")==null) {%>
 			<a href="http://localhost:8080/pro2/main/join.jsp" id="join"><strong>회원가입</strong></a>
+			<%}else{ %>
+			<a href="#" id="mypage"><strong>페이지</strong></a>
+			  <%}%>
 			</div>
 	</div>
 
