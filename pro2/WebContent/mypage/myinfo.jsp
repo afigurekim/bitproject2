@@ -80,7 +80,7 @@
 	if(pwchk==null || pwchk.equals("true")){}
 	else if(pwchk.equals("false")) { %><div>*비밀번호가 일치하지 않습니다. 비밀번호를 동일하게 입력해주세요.</div> <% } %>
 		<form action="myupdate.bit" method="post">
-		<div><label>ID</label>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<%= request.getParameter("userid") %><input type="hidden" name="userid" value="<%= request.getParameter("userid") %>"/></div>
+		<div><label>ID</label>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<%= userid %><input type="hidden" name="userid" value="<%= userid %>"/></div>
 		<%
 			ArrayList<MemberDto> list = (ArrayList<MemberDto>) request.getAttribute("alist");
 			for(MemberDto bean : list){

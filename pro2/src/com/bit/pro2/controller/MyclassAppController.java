@@ -2,6 +2,7 @@ package com.bit.pro2.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bit.pro2.model.MemberDao;
+import com.bit.pro2.model.MemberDto;
 import com.bit.pro2.model.ProgramDao;
+import com.bit.pro2.model.ProgramDto;
 
 public class MyclassAppController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,6 +31,13 @@ public class MyclassAppController extends HttpServlet {
 			try {
 				memberdao.updateProgram(appnum, userid);
 				programdao.updateCnt(appnum);
+				
+				MemberDto membean = memberdao.selectProgram(userid);
+				req.setAttribute("membean", membean);
+				ArrayList<ProgramDto> progonelist = programdao.progSelectOne(membean.getUserprog());
+				req.setAttribute("progonelist", progonelist);
+				ArrayList<ProgramDto> proglist = programdao.progSelectAll();
+				req.setAttribute("proglist", proglist);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -36,6 +46,13 @@ public class MyclassAppController extends HttpServlet {
 				programdao.updateMinus(userprog);
 				memberdao.updateProgram(appnum, userid);
 				programdao.updateCnt(appnum);
+				
+				MemberDto membean = memberdao.selectProgram(userid);
+				req.setAttribute("membean", membean);
+				ArrayList<ProgramDto> progonelist = programdao.progSelectOne(membean.getUserprog());
+				req.setAttribute("progonelist", progonelist);
+				ArrayList<ProgramDto> proglist = programdao.progSelectAll();
+				req.setAttribute("proglist", proglist);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

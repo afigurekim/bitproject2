@@ -34,7 +34,6 @@ public class MyclassController extends HttpServlet {
 			if(membean!=null){
 				ArrayList<ProgramDto> progonelist = programdao.progSelectOne(membean.getUserprog());
 				req.setAttribute("progonelist", progonelist);
-				programdao = new ProgramDao();
 			}
 			ArrayList<ProgramDto> proglist = programdao.progSelectAll();
 			req.setAttribute("proglist", proglist);

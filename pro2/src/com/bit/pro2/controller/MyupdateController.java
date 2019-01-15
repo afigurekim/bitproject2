@@ -2,6 +2,7 @@ package com.bit.pro2.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bit.pro2.model.MemberDao;
+import com.bit.pro2.model.MemberDto;
 
 public class MyupdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,13 +22,24 @@ public class MyupdateController extends HttpServlet {
 		HttpSession session = req.getSession();
 		req.setCharacterEncoding("UTF-8");
 		
+		String userid = req.getParameter("userid");
 		String userpw = req.getParameter("userpw");
 		String userpwchk = req.getParameter("userpwchk");
 		
 		String pwchk = null;
+		
+		MemberDao dao = new MemberDao();
+		
 		if(!userpw.equals(userpwchk)){
 			pwchk = "false";
 			session.setAttribute("pwchk", pwchk);
+			ArrayList<MemberDto> list;
+			try {
+				list = dao.memberGet(userid);
+				req.setAttribute("alist", list);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 		}else{
 			String username = req.getParameter("username");
@@ -38,12 +51,11 @@ public class MyupdateController extends HttpServlet {
 			}
 			String userphone = req.getParameter("userphone");
 			String usermail = req.getParameter("usermail");
-			String userid = req.getParameter("userid");
-			
-			MemberDao dao = new MemberDao();
 			
 			try {
 				dao.memberUpdate(username, userpw, useraddr, userphone, usermail, userid);
+				ArrayList<MemberDto> list = dao.memberGet(userid);
+				req.setAttribute("alist", list);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
