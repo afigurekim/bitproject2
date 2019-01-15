@@ -28,8 +28,7 @@ public class MyinfoController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		req.getRequestDispatcher("myinfo.jsp").forward(req, resp);
-
+		req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 	}
 	
 }

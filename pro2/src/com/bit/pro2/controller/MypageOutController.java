@@ -27,7 +27,7 @@ public class MypageOutController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		req.getRequestDispatcher("mypage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/mypage/mypage.jsp").forward(req, resp);
 	}
 
 }

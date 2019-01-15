@@ -12,7 +12,7 @@ public class MypageController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("mypage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/mypage/mypage.jsp").forward(req, resp);
 	}
 	
 }

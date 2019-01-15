@@ -9,26 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bit.pro2.model.CheckinDao;
-import com.bit.pro2.model.CheckinDto;
+import com.bit.pro2.model.StuscoreDao;
+import com.bit.pro2.model.StuscoreDto;
 
-public class MycheckinController extends HttpServlet {
+public class MyscoreController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userid = req.getParameter("userid");
 		
-		CheckinDao dao = new CheckinDao();
+		StuscoreDao dao = new StuscoreDao();
 		
 		try {
-			ArrayList<CheckinDto> list = dao.checkinGet(userid);
+			ArrayList<StuscoreDto> list = dao.scoreGet(userid);
 			req.setAttribute("alist", list);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		req.getRequestDispatcher("/mypage/mycheckin.jsp").forward(req, resp);
+		req.getRequestDispatcher("/mypage/myscore.jsp").forward(req, resp);
 	}
 	
+	
+
 }
