@@ -81,8 +81,8 @@ create table scorelist(
 	subname varchar2(30),
 	examdate varchar2(8),
 	teachname varchar2(15),
-	examscore number,
-	examchk number
+	examscore number default 0,
+	examchk number default 0
 );
 
 insert into scorelist values (1, 1, 'java','20190115','tea1',50, 0);
