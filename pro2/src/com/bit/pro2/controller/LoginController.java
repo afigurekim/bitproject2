@@ -29,6 +29,8 @@ public class LoginController extends HttpServlet{
 	MemberDto memDto = new MemberDto();		/*CSH 2019/01/15*/
 	
 	String level ="";
+	String username ="";
+	int usernum=0;
 	int su=0;	
 	
 	try {
@@ -36,6 +38,8 @@ public class LoginController extends HttpServlet{
 		
 		memDto = dao.memberGetOne(id);		/*CSH 2019/01/15 session 에 level 추가 사용*/
 		level =memDto.getUserlevel();
+		username =memDto.getUsername();
+		usernum =memDto.getUsernum();
 		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -46,6 +50,8 @@ public class LoginController extends HttpServlet{
 	if(su==1){
 		session.setAttribute("id", id);
 		session.setAttribute("level", level);		/*CSH 2019/01/15*/
+		session.setAttribute("username", username);		/*CSH 2019/01/15*/
+		session.setAttribute("usernum", usernum);		/*CSH 2019/01/15*/
 	}
 	resp.setContentType("application/json; charset=\"utf-8\"");
 	resp.setCharacterEncoding("utf-8");
