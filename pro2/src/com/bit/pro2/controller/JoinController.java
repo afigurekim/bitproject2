@@ -28,7 +28,7 @@ public class JoinController extends HttpServlet{
 		
 		
 		MemberDao dao=new MemberDao();
-	
+		/*System.out.println("name:"+name+" ,id:"+id+" ,pw:"+pw+",addr:"+addr+", phone:"+phone+", mail:"+mail);*/
 				int su=0;
 				try {
 					su = dao.memberNew(name,id,pw,addr,phone,mail);
@@ -37,16 +37,10 @@ public class JoinController extends HttpServlet{
 					e.printStackTrace();
 				}
 		
-			if(su>0){
-				resp.sendRedirect("joinend.jsp");
-			}else{
-				resp.sendRedirect("list.bit");
-			}
-		
 	
-	
-		
-	
+			if(su>0) resp.sendRedirect("joinend.jsp?result='success'");
+			else resp.sendRedirect("join.bit?result='failure'");
+			
 	}
 
 }
