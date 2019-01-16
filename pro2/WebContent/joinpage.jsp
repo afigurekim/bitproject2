@@ -24,7 +24,7 @@
 	}
 
 	form>div{
-		width:500px;
+		width:520px;
 		height: 57px;
 	}
 	
@@ -42,15 +42,15 @@
     <script type="text/javascript">
     
    	function idcheck2(){
-//   		var sid=document.getElementsByName("userid");
- //  		alert(sid[0].value);
-   			var sid=document.getElementById("userid");
+   		var sid=document.getElementsByName("userid");
+   		alert(sid[0].value);
+   /*			var sid=document.getElementById("userid");
    			alert(sid.value);
-   		
+   	*/	
    		$.ajax({
    			url:"/pro2/idcheck.bit",
    			data:{
-   				userid:sid.value
+   				userid:sid[0].value
    			},
    			success:function(data){
    				alert(data);
@@ -64,6 +64,23 @@
    			}
    			
    		})
+   		
+   	}
+   	
+   	
+   	function pwcheck2(){
+   		var spw=document.getElementById("userpw");
+   		var spwchk=document.getElementById("userpwck");
+   		
+   		if(spw.value!=''&& spwchk.value!=''){
+   			if(spw.value==spwchk.value){
+   				document.getElementById("same").innerHTML='비밀번호가 일치합니다';
+   				document.getElementById("same").style.color='blue';
+   			}else{
+   				document.getElementById("same").innerHTML='비밀번호가 일치하지않습니다.';
+   				document.getElementById("same").style.color='red';
+   			}
+   		}
    		
    	}
     
@@ -109,7 +126,7 @@
 
 	<label>비밀번호*&emsp;&emsp;&emsp;</label>
 
-	<input type="password" name="userpw" style="height:23px; width: 180px">
+	<input type="password" name="userpw" id="userpw" style="height:23px; width: 180px" onchange="pwcheck2()">
 
 	</div>
 
@@ -117,7 +134,7 @@
 
 	<label>비밀번호 확인*&emsp;</label>
 
-	<input type="password" name="userpwck" style="height:23px; width: 180px">
+	<input type="password" name="userpwck" id="userpwck"  style="height:23px; width: 180px" onchange="pwcheck2()">&ensp;<span id="same"></span>
 	<div id="checkPwd">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;동일한 암호를 입력하세요.</div>
 
 	
