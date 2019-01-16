@@ -78,7 +78,10 @@
 	<p><strong>개인정보수정</strong></p>
 	<% String pwchk = (String) session.getAttribute("pwchk");
 	if(pwchk==null || pwchk.equals("true")){}
-	else if(pwchk.equals("false")) { %><div>*비밀번호가 일치하지 않습니다. 비밀번호를 동일하게 입력해주세요.</div> <% } %>
+	else if(pwchk.equals("false")) { %><div>*비밀번호가 일치하지 않습니다. 비밀번호를 동일하게 입력해주세요.</div> <% } 
+	String nullchk = (String) session.getAttribute("nullchk");
+	if(nullchk==null || nullchk.equals("true")){}
+	else if(nullchk.equals("false")) { %><div>*입력하지 않은 정보가 있습니다. 정보를 확인해주세요.</div> <% } %>
 		<form action="myupdate.bit" method="post">
 		<div><label>ID</label>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<%= userid %><input type="hidden" name="userid" value="<%= userid %>"/></div>
 		<%

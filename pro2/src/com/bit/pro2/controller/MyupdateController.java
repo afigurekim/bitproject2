@@ -27,6 +27,7 @@ public class MyupdateController extends HttpServlet {
 		String userpwchk = req.getParameter("userpwchk");
 		
 		String pwchk = null;
+		String nullchk = null;
 		
 		MemberDao dao = new MemberDao();
 		
@@ -52,17 +53,36 @@ public class MyupdateController extends HttpServlet {
 			String userphone = req.getParameter("userphone");
 			String usermail = req.getParameter("usermail");
 			
-			try {
-				dao.memberUpdate(username, userpw, useraddr, userphone, usermail, userid);
-				ArrayList<MemberDto> list = dao.memberGet(userid);
-				req.setAttribute("alist", list);
-			} catch (SQLException e) {
-				e.printStackTrace();
+			if(username.equals("")||username==null
+					||userpw.equals("")||userpw==null
+					||useraddr.equals("")||useraddr==null
+					||userphone.equals("")||userphone==null
+					||usermail.equals("")||usermail==null){
+				nullchk = "false";
+				session.setAttribute("nullchk", nullchk);
+				ArrayList<MemberDto> list;
+				try {
+					list = dao.memberGet(userid);
+					req.setAttribute("alist", list);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
+			} else {
+				try {
+					dao.memberUpdate(username, userpw, useraddr, userphone, usermail, userid);
+					ArrayList<MemberDto> list = dao.memberGet(userid);
+					req.setAttribute("alist", list);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				pwchk = "true";
+				nullchk = "true";
+				session.setAttribute("pwchk", pwchk);
+				session.setAttribute("nullchk", nullchk);
+				req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 			}
-			
-			pwchk = "true";
-			session.setAttribute("pwchk", pwchk);
-			req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 		}
 	}
 	
