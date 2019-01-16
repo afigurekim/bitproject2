@@ -12,10 +12,36 @@
   
     <style>
 
-  	#divi{
+  		#divi{
   		width: 960px;
-  		height:1000px; 
+  		height:1400px; 
   		}
+  		
+  	#C{
+  		width:500px;
+  		height: 400px;
+  	}
+        
+     #a{
+     
+     	width: 580px;
+     	height: 200px;
+     	border-top: 0.8px solid #9EA2A2;
+     	border-bottom: 0.8px solid #9EA2A2;
+     	background-color: #D8D8D8;
+       
+      }
+      
+      #d{
+      	margin: 30px 0 0 0;
+      	padding: 10px; 
+      }
+      
+      #b{
+      	width: 70px;
+      	height: 25px;
+      	background-color: #D8D8D8;
+      }
         
         
     </style>
@@ -57,9 +83,41 @@
 <p><strong>JAVA과정</strong></p>
 
 
+	<div id="a">
+		<h3>과정개요</h3>
+		
+		<p>JAVA 과정은 JAVA를 처음 배우는 이들이 어렵지 않게 JAVA의 기본적인 내용을 이해할 수 있도록 다양한 예제와 실습을 통해 진행하고 있습니다. 본 과정을 통해 기본적인 JAVA의 작성 방법, JAVA의 기본 구조와 응용방법 등에 대해 습득하실 수 있습니다.</p>
+	</div>
+	
+	<div id="d">
+		<table>
+			<tr>
+				<td id="b">교육시간</td>
+				<td>50시간</td>
+			</tr>
+		
+			<tr>
+				<td id="b">모집인원</td>
+				<td>30명 내외</td>
+			</tr>
+			
+			<tr>
+				<td id="b">교육방식</td>
+				<td>이론 및 실습 중심 교육</td>
+			</tr>
+			
+			<tr>
+				<td id="b">교육장소</td>
+				<td>비트캠프 서대문점</td>
+			</tr>
+		</table>
+	</div>
 
 
-<img alt="hello" src="../imgs/baby.jpg">
+	<h3>커리큘럼</h3>
+	
+	<img alt="hello" src="../imgs/Ccourse.PNG">
+
 
 
 
