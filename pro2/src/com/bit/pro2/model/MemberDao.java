@@ -186,13 +186,14 @@ public class MemberDao {
 	
 	public MemberDto memberGetOne(String userid) throws SQLException {
 		MemberDto bean = new MemberDto();
-		String sql = "SELECT USERNAME, USERPW, USERADDR, USERPHONE, USERMAIL, USERLEVEL FROM MEMBER WHERE USERID=?";
+		String sql = "SELECT USERNUM, USERNAME, USERPW, USERADDR, USERPHONE, USERMAIL, USERLEVEL FROM MEMBER WHERE USERID=?";
 		
 		try {
 			pstmt = MyOra.getConnection().prepareStatement(sql);
 			pstmt.setString(1, userid);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
+				bean.setUsernum(rs.getInt("usernum"));		/* CSH 20190116 usernum 추가 */
 				bean.setUsername(rs.getString("username"));
 				bean.setUserpw(rs.getString("userpw"));
 				bean.setUseraddr(rs.getString("useraddr"));
