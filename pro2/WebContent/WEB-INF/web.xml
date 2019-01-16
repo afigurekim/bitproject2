@@ -55,6 +55,10 @@
   	<servlet-name>logout</servlet-name>
   	<servlet-class>com.bit.pro2.controller.LogoutController</servlet-class>
   </servlet>
+   <servlet>
+  	<servlet-name>idcheck</servlet-name>
+  	<servlet-class>com.bit.pro2.controller.IdCheckController</servlet-class>
+  </servlet>
   <servlet>
   	<servlet-name>mg_admission</servlet-name>
   	<servlet-class>com.bit.pro2.controller.Mg_admissionController</servlet-class>
@@ -178,7 +182,10 @@
   	<servlet-name>logout</servlet-name>
   	<url-pattern>/logout.bit</url-pattern>
   </servlet-mapping>
-
+    <servlet-mapping>
+  	<servlet-name>idcheck</servlet-name>
+  	<url-pattern>/idcheck.bit</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>mg_admission</servlet-name>
   	<url-pattern>/mg_admission.bit</url-pattern>
