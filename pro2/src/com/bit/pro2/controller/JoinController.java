@@ -22,13 +22,13 @@ public class JoinController extends HttpServlet{
 		String id=req.getParameter("userid");
 		String pw=req.getParameter("userpw");
 		String pwck=req.getParameter("userpwck");
-		String addr=req.getParameter("useraddr");
+		String addr=req.getParameter("addrcode")+" "+req.getParameter("addrmain")+" "+req.getParameter("addrdetail")+" "+req.getParameter("addrextra");
 		String phone=req.getParameter("userphone");
 		String mail=req.getParameter("usermail");
 		
 		
 		MemberDao dao=new MemberDao();
-		/*System.out.println("name:"+name+" ,id:"+id+" ,pw:"+pw+",addr:"+addr+", phone:"+phone+", mail:"+mail);*/
+		System.out.println("name:"+name+" ,id:"+id+" ,pw:"+pw+",addr:"+addr+", phone:"+phone+", mail:"+mail);
 				int su=0;
 				try {
 					su = dao.memberNew(name,id,pw,addr,phone,mail);
