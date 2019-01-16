@@ -21,7 +21,9 @@ public class MyinfoController extends HttpServlet {
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("id");
 		String pwchk = null;
+		String nullchk = null;
 		session.setAttribute("pwchk", pwchk);
+		session.setAttribute("nullchk", nullchk);
 		
 		MemberDao dao = new MemberDao();
 		

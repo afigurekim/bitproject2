@@ -43,6 +43,8 @@ public class MyupdateController extends HttpServlet {
 			}
 			req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 		}else{
+			pwchk = "true";
+			session.setAttribute("pwchk", pwchk);
 			String username = req.getParameter("username");
 			String useraddr;
 			if(req.getParameter("addrcode")==null || req.getParameter("addrcode")==""){
@@ -69,6 +71,8 @@ public class MyupdateController extends HttpServlet {
 				}
 				req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 			} else {
+				nullchk = "true";
+				session.setAttribute("nullchk", nullchk);
 				try {
 					dao.memberUpdate(username, userpw, useraddr, userphone, usermail, userid);
 					ArrayList<MemberDto> list = dao.memberGet(userid);
@@ -76,11 +80,6 @@ public class MyupdateController extends HttpServlet {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				
-				pwchk = "true";
-				nullchk = "true";
-				session.setAttribute("pwchk", pwchk);
-				session.setAttribute("nullchk", nullchk);
 				req.getRequestDispatcher("/mypage/myinfo.jsp").forward(req, resp);
 			}
 		}
