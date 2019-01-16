@@ -30,16 +30,16 @@ userlevel varchar2(10) default 'student'
 
 create sequence member_seq;
 
-insert into member values (member_seq.nextval,'stu1','stu1','1234','seoul 1234',01042434246,'111111@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'stu2','stu2','1234','seoul 1234',01042434246,'222222@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'stu3','stu3','1234','seoul 1234',01042434246,'333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'stu4','stu4','1234','seoul 1234',01042434246,'333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'stu5','stu5','1234','seoul 1234',01042434246,'333333@hanmail.net',3,'student');
-insert into member values (member_seq.nextval,'stu6','stu6','1234','seoul 1234',01042434246,'333333@hanmail.net',3,'student');
-insert into member values (member_seq.nextval,'tea1','tea1','1234','seoul 1234',01042434246,'444444@hanmail.net',0,'teacher');
-insert into member values (member_seq.nextval,'tea2','tea2','1234','seoul 1234',01042434246,'555555@hanmail.net',0,'teacher');
-insert into member values (member_seq.nextval,'tea3','tea3','1234','seoul 1234',01042434246,'555555@hanmail.net',0,'teacher');
-insert into member values (member_seq.nextval,'ma1','ma1','1234','seoul 1234',01042434246,'666666@hanmail.net',0,'admin');
+insert into member values (member_seq.nextval,'stu1','stu1','1234','seoul 1234','01042434246','111111@hanmail.net',1,'student');
+insert into member values (member_seq.nextval,'stu2','stu2','1234','seoul 1234','01042434246','222222@hanmail.net',1,'student');
+insert into member values (member_seq.nextval,'stu3','stu3','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
+insert into member values (member_seq.nextval,'stu4','stu4','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
+insert into member values (member_seq.nextval,'stu5','stu5','1234','seoul 1234','01042434246','333333@hanmail.net',3,'student');
+insert into member values (member_seq.nextval,'stu6','stu6','1234','seoul 1234','01042434246','333333@hanmail.net',3,'student');
+insert into member values (member_seq.nextval,'tea1','tea1','1234','seoul 1234','01042434246','444444@hanmail.net',0,'teacher');
+insert into member values (member_seq.nextval,'tea2','tea2','1234','seoul 1234','01042434246','555555@hanmail.net',0,'teacher');
+insert into member values (member_seq.nextval,'tea3','tea3','1234','seoul 1234','01042434246','555555@hanmail.net',0,'teacher');
+insert into member values (member_seq.nextval,'ma1','ma1','1234','seoul 1234','01042434246','666666@hanmail.net',0,'admin');
 
 create table program(
 	prognum	number primary key,
