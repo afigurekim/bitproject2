@@ -79,7 +79,7 @@ create table scorelist(
 	stunum number,
 	examnum number,
 	subname varchar2(30),
-	examdate varchar2(8),
+	examdate varchar2(10),
 	teachname varchar2(15),
 	examscore number default 0,
 	examchk number default 0
