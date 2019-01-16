@@ -266,4 +266,26 @@ public class MemberDao {
 		return su;
 	}
 	
+	public int membercheck(String userid) throws SQLException{
+		String sql="select count(*) as cntchk from member where userid=?";
+		int su=0;
+		try{
+			pstmt=MyOra.getConnection().prepareStatement(sql);
+			pstmt.setString(1, userid);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				su=rs.getInt("cntchk");
+			}
+	
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(MyOra.getConnection()!=null)MyOra.getConnection().close();
+		}
+			
+			return su;
+		}
+	
 }
