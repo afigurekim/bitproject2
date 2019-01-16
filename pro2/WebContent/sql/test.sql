@@ -56,9 +56,9 @@ create table program(
 
 create sequence program_seq;
 
-insert into program values (program_seq.nextval, 'java', 7, 'class1', sysdate, sysdate, 'AM 09:30', 320, 30, 0 );
-insert into program values (program_seq.nextval, 'database', 8, 'class2', sysdate, sysdate, 'AM 10:30', 120, 40, 0 );
-insert into program values (program_seq.nextval, 'web', 9, 'class3', sysdate, sysdate, 'PM 12:00', 60, 50, 0 );
+insert into program values (program_seq.nextval, 'java', 7, 'class1', sysdate, sysdate, 'AM 09:30', 320, 30, 2 );
+insert into program values (program_seq.nextval, 'database', 8, 'class2', sysdate, sysdate, 'AM 10:30', 120, 40, 2 );
+insert into program values (program_seq.nextval, 'web', 9, 'class3', sysdate, sysdate, 'PM 12:00', 60, 50, 2 );
 
 
 create table examlist(
