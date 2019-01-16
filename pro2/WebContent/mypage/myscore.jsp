@@ -64,7 +64,7 @@
 			ArrayList<StuscoreDto> list = (ArrayList<StuscoreDto>) request.getAttribute("alist");
 			for(StuscoreDto bean : list){
 				String datebean = bean.getExamdate();
-				Date datedate = new SimpleDateFormat("yyyyMMdd").parse(datebean);
+				Date datedate = new SimpleDateFormat("yyyy-MM-dd").parse(datebean);
 				String datestring = new SimpleDateFormat("yyyy/MM/dd").format(datedate);
 		%>
 		<tr>
