@@ -130,8 +130,8 @@
 
 	<h1>회원가입이 완료되었습니다</h1>
 	
-	<a href="#">HOME</a>
-	<a href="#">로그인</a>
+	<a href="http://localhost:8080/pro2/main.jsp">HOME</a>
+	<a href="http://localhost:8080/pro2/login.jsp">로그인</a>
 
 </div>
 	</div>
