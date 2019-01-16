@@ -141,7 +141,7 @@
  		</div> 
  		 <div id="outoutout"> 
  			<div id="con">내용을 입력해주세요</div>
- 			<div id="concon"><textarea name="cont" id="cont" value="<%=dto.getQnacont() %>"/></textarea></div> 
+ 			<div id="concon"><textarea name="cont" id="cont" value=""/><%=dto.getQnacont() %></textarea></div> 
  		</div> 
  	
  	
