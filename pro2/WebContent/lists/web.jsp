@@ -14,13 +14,18 @@
 
   	#divi{
   		width: 960px;
-  		height:1000px; 
+  		height:1400px; 
   		}
         
         #web,#web1{
         width: 500px;
         height: 400px;
         }
+        
+        #num{
+		text-decoration: none;
+		color: red; 
+	}
         
     </style>
     <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
@@ -65,6 +70,18 @@
 
 <img alt="web" src="../imgs/web.jpg" id="web">
 <img alt="web" src="../imgs/web2.jpg" id="web1">
+
+<p>
+<h2><a id="num">1.</a> 강좌 소개</h2><br>
+데이터통신과 컴퓨터 네트워크의 기초 개념, 계층별 특징과 각종 프로토콜,
+성능 분석과 네트워크 기술, 네트워크 응용 기술과 차세대 기술에 대하여 학습한다.
+y 교재: 데이터통신과 컴퓨터 네트워킹: 기초이론과 최신 응용 (강문석 저, 한빛미디어
+</br>
+<br>
+<h2><a id="num">3.</a> 강좌 특징</h2><br>
+- 교재: 데이터통신과 컴퓨터 네트워킹: 기초이론과 최신 응용 (강문석 저, 한빛미디어)<br>
+
+</p>
 
 
 

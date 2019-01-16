@@ -14,20 +14,24 @@
 
   	#divi{
   		width: 960px;
-  		height:850px; 
+  		height:800px; 
   		}
   		
   	table{
   		width:600px;
-  		height:350px;
-  		border: 1px solid black;
+  		height:400px;
+  	//	border: 1.5px solid gray;
   		
   		}
   		
-  	#sub{
-  		background-color: white;
+  #a{
+  		background-color: #D8D8D8;
+  		color: white;
+  		border-bottom: 1px solid black;
   		
   		}
+  		
+  		
   		
   		
   		
@@ -35,11 +39,12 @@
   			width: 10%;
   			text-align: center;
   			
+  			
   		}
   		
  
   	td{
-  		border: 0.8px solid #9EA2A2;
+  		border-bottom: 0.8px solid #9EA2A2;
   		cellspacing:"0";
   		}
   	
@@ -91,10 +96,10 @@
 
 
 
-<table cellspacing="0">
-	<tr id="sub">
-		<td id="num">번호</td>
-		<td>제목</td>
+<table cellspacing="0" >
+	<tr >
+		<th id="a"><strong>번호</strong></th>
+		<th id="a"><strong>제목</strong></th>
 	</tr>
 		<tr>
 		<td id="num">1</td>
@@ -110,15 +115,15 @@
 	</tr>
 	<tr>
 		<td id="num">4</td>
-		<td><a href="http://localhost:8080/pro2/qna/ad4.jsp">실업자내일배움카드 지원혜택은 어떻게 되나요?</a></td>
+		<td><a href="http://localhost:8080/pro2/qna/ad4.jsp">국비무료과정 국가기간전략산업기간이란?</a></td>
 	</tr>
 	<tr>
 		<td id="num">5</td>
-		<td><a href="http://localhost:8080/pro2/qna/ad5.jsp">실업자내일배움카드 지원혜택은 어떻게 되나요?</a></td>
+		<td><a href="http://localhost:8080/pro2/qna/ad5.jsp">근로자 직업능력개발훈련이란?</a></td>
 	</tr>
 	<tr>
 		<td id="num">6</td>
-		<td><a href="http://localhost:8080/pro2/qna/ad6.jsp">실업자내일배움카드 지원혜택은 어떻게 되나요?</a></td>
+		<td><a href="http://localhost:8080/pro2/qna/ad6.jsp">근로자 직업능력개발훈련 지원대상자는 어떻게 되나요?</a></td>
 	</tr>
 </table>
 
