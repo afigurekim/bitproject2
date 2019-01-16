@@ -11,18 +11,15 @@
     <link rel="stylesheet" style="text/css" href="./css/join.css"/>
 
 <style type="text/css">
-
 	#divi{
   		width: 960px;
   		height:700px; 
   		}
-
 	form{
 //	border: 0.6px solid gray;
 	padding: 35px;
 	
 	}
-
 	form>div{
 		width:520px;
 		height: 57px;
@@ -32,11 +29,6 @@
 	font-weight: bold;
 	font-size: 15px;
 	}
-
-
-
-
-
 </style>
    <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
     <script type="text/javascript">
@@ -85,7 +77,7 @@
    	}
     
     
-    
+   	if(<%=request.getParameter("result")%>)alert(<%=request.getParameter("result")%>);
     </script>
 </head>
 <body>
