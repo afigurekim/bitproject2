@@ -9,6 +9,32 @@
    <link rel="stylesheet" style="text/css" href="css/main.css"/>
    <link rel="stylesheet" style="text/css" href="css/join.css"/>
    
+   <style type="text/css">
+   
+   #out{
+   	width: 300px;
+   	height: 100px;
+   	border: 2px solid black;
+   	padding: 80px;
+   	margin: 100px 0 0 10px;
+   }
+   
+   #out>div{
+   	height: 40px;
+   }
+   
+   #out>div>label{
+   	font-weight: bold;
+   }
+   
+
+   
+   #button{
+   	margin: 15px; 
+   }
+   
+   </style>
+   
 
      <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
      <script type="text/javascript">
@@ -32,6 +58,7 @@
      		});
      	});
      	
+    
      	
      </script>
    
@@ -40,18 +67,22 @@
 <body>
  <%@ include file="template/header.jspf" %>
  <%@ include file="template/advice.jspf" %>
+ <h1>로그인</h1>
 	<div id="hh">
 	<form  method="post">
+			<div id="out">
 				<div>
-					<label for="id">id</label><input type="text" name="userid" id="id" />
+					<label for="id">아이디&nbsp;&emsp;&emsp;</label><input type="text" name="userid" id="id" style="width:180px; height:20px;"/>
 				</div>
 				<div>
-					<label for="pw">pw</label><input type="password" name="userpw" id="pw" />
+					<label for="pw">비밀번호&nbsp;&emsp;</label><input type="password" name="userpw" id="pw" style="width:180px; height:20px;"/>
 				</div>
 				<div>
 					<button type="submit">로그인</button>
 					<button type="reset">취소</button>
 				</div>
+			</div>
+			
 			</form>
 		</div>	
 			
