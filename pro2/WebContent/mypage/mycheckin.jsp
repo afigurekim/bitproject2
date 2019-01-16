@@ -61,6 +61,7 @@
 				<th>입실</th>
 				<th>퇴실</th>
 				<th>비고</th>
+				<th>강사확인</th>
 			</tr>
 			<%
 			ArrayList<CheckinDto> list = (ArrayList<CheckinDto>)request.getAttribute("alist");
@@ -93,12 +94,18 @@
 					if((outMins-inMins)>370){ chkstatus="지각조퇴"; } else { chkstatus="결석"; }
 				}
 				else if(innum>=143000){ chkstatus="결석"; }
+				
+				String chkteach = null;
+				int chkbean = bean.getCheckchk();
+				
+				if(chkbean==1){ chkteach = "확인"; } else { chkteach = "미확인"; }
 			%>
 			<tr>
 				<td><%= datestring %></td>
 				<td><%= instring %></td>
 				<td><%= outstring %></td>
 				<td><%= chkstatus %></td>
+				<td><%= chkteach %></td>
 			</tr>
 			<% } %>
 		</table>

@@ -132,7 +132,7 @@ public class CheckinDao {
 	
 	public ArrayList<CheckinDto> checkinGet(String userid) throws SQLException {
 		ArrayList<CheckinDto> list = new ArrayList<CheckinDto>();
-		String sql = "SELECT CHECKDATE, CHECKIN, CHECKOUT FROM CHECKINLIST WHERE STUNUM=(SELECT USERNUM FROM MEMBER WHERE USERID=?) ORDER BY CHECKDATE DESC";
+		String sql = "SELECT CHECKDATE, CHECKIN, CHECKOUT, CHECKCHK FROM CHECKINLIST WHERE STUNUM=(SELECT USERNUM FROM MEMBER WHERE USERID=?) ORDER BY CHECKDATE DESC";
 		
 		try {
 			pstmt = MyOra.getConnection().prepareStatement(sql);
@@ -143,6 +143,7 @@ public class CheckinDao {
 				bean.setCheckdate(rs.getString("checkdate"));
 				bean.setCheckin(rs.getString("checkin"));
 				bean.setCheckout(rs.getString("checkout"));
+				bean.setCheckchk(rs.getInt("checkchk"));
 				list.add(bean);
 			}
 		} finally {
