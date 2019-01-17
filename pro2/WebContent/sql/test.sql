@@ -33,11 +33,11 @@ create sequence member_seq;
 insert into member values (member_seq.nextval,'student','student1','1234','seoul 1234',01042434246,'111111@hanmail.net',1,'student');
 insert into member values (member_seq.nextval,'서지혜','jihey1','1234','seoul 1234',01042434246,'222222@hanmail.net',1,'student');
 insert into member values (member_seq.nextval,'김도형','dohyung1','1234','seoul 1234',01042434246,'333333@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'최시훈','sihoon1','1234','seoul 1234',01042434246,'333333@hanmail.net',1,'student');
+insert into member values (member_seq.nextval,'최시훈','sihoon1','1234','seoul 1234',01042434246,'333333@hanmail.net',2,'student');
 insert into member values (member_seq.nextval,'김동현','donghyun1','1234','seoul 1234',01042434246,'333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'김하늘','hanule1','1234','seoul 1234',01042434246,'333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'박민호','minho1','1234','seoul 1234',01042434246,'444444@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'원기','wongi1','1234','seoul 1234',01042434246,'555555@hanmail.net',2,'student');
+insert into member values (member_seq.nextval,'김하늘','hanule1','1234','seoul 1234',01042434246,'333333@hanmail.net',3,'student');
+insert into member values (member_seq.nextval,'박민호','minho1','1234','seoul 1234',01042434246,'444444@hanmail.net',3,'student');
+insert into member values (member_seq.nextval,'원기','wongi1','1234','seoul 1234',01042434246,'555555@hanmail.net',3,'student');
 insert into member values (member_seq.nextval,'이주은','leeju1','1234','seoul 1234',01042434246,'555555@hanmail.net',3,'student');
 insert into member values (member_seq.nextval,'최범규','choi1','1234','seoul 1234',01042434246,'666666@hanmail.net',3,'student');
 
@@ -47,6 +47,7 @@ insert into member values (member_seq.nextval,'조정식','jungsik','1234','seou
 insert into member values (member_seq.nextval,'teacher','teacher','1234','seoul 1234','01042434246','555555@hanmail.net',0,'teacher');
 
 insert into member values (member_seq.nextval,'조현정','admin','1234','seoul 1234','01042434246','666666@hanmail.net',0,'admin');
+
 
 create table program(
 	prognum	number primary key,
@@ -94,44 +95,15 @@ create table scorelist(
 
 
 insert into scorelist values (1, 1, 'java','20190115','유대종',50, 0);
-insert into scorelist values (1, 2, 'database','20190116','teacher',60, 0);
-insert into scorelist values (1, 3, 'web','20190117','teacher',70, 0);
-
 insert into scorelist values (2, 1, 'java','20190115','유대종',90, 0);
-insert into scorelist values (2, 2, 'database','20190116','teacher',40, 0);
-insert into scorelist values (2, 3, 'web','20190117','teacher',30, 0);
-
-insert into scorelist values (3, 1, 'java','20190115','유대종',20, 0);
-insert into scorelist values (3, 2, 'database','20190116','teacher',50, 0);
-insert into scorelist values (3, 3, 'web','20190117','teacher',60, 0);
-
-insert into scorelist values (4, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (3, 1, 'java','20190115','유대종',60, 0);
 insert into scorelist values (4, 2, 'database','20190116','teacher',50, 0);
-insert into scorelist values (4, 3, 'web','20190117','teacher',60, 0);
-
-insert into scorelist values (5, 1, 'java','20190115','유대종',20, 0);
-insert into scorelist values (5, 2, 'database','20190116','teacher',50, 0);
-insert into scorelist values (5, 3, 'web','20190117','teacher',60, 0);
-
-insert into scorelist values (6, 1, 'java','20190115','유대종',20, 0);
-insert into scorelist values (6, 2, 'database','20190116','teacher',50, 0);
-insert into scorelist values (6, 3, 'web','20190117','teacher',60, 0);
-
-insert into scorelist values (7, 1, 'java','20190115','유대종',20, 0);
-insert into scorelist values (7, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (5, 2, 'database','20190116','teacher',60, 0);
+insert into scorelist values (6, 3, 'web','20190117','teacher',50, 0);
 insert into scorelist values (7, 3, 'web','20190117','teacher',60, 0);
-
-insert into scorelist values (8, 1, 'java','20190115','유대종',20, 0);
-insert into scorelist values (8, 2, 'database','20190116','teacher',50, 0);
-insert into scorelist values (8, 3, 'web','20190117','teacher',60, 0);
-
-insert into scorelist values (9, 1, 'java','20190115','유대종',20, 0);
-insert into scorelist values (9, 2, 'database','20190116','teacher',50, 0);
-insert into scorelist values (9, 3, 'web','20190117','teacher',60, 0);
-
-insert into scorelist values (10, 1, 'java','20190115','유대종',20, 0);
-insert into scorelist values (10, 2, 'database','20190116','teacher',50, 0);
-insert into scorelist values (10, 3, 'web','20190117','teacher',60, 0);
+insert into scorelist values (7, 3, 'web','20190117','teacher',78, 0);
+insert into scorelist values (8, 3, 'web','20190117','teacher',80, 0);
+insert into scorelist values (10, 3, 'web','20190117','teacher',39, 0);
 
 
 create table checkinlist(
@@ -152,16 +124,6 @@ insert into checkinlist values (7, '20190113', '083000', '110000',0);
 insert into checkinlist values (8, '20190113', '083000', '110000',0);
 insert into checkinlist values (9, '20190113', '083000', '110000',0);
 insert into checkinlist values (10, '20190113', '083000', '110000',0);
-insert into checkinlist values (11, '20190113', '083000', '120000',0);
-insert into checkinlist values (12, '20190113', '103000', '180000',0);
-insert into checkinlist values (13, '20190113', '073000', '150000',0);
-insert into checkinlist values (14, '20190113', '113000', '123000',0);
-insert into checkinlist values (15, '20190113', '083000', '110000',0);
-insert into checkinlist values (16, '20190113', '083000', '110000',0);
-insert into checkinlist values (17, '20190113', '083000', '110000',0);
-insert into checkinlist values (18, '20190113', '083000', '110000',0);
-insert into checkinlist values (19, '20190113', '083000', '110000',0);
-insert into checkinlist values (20, '20190113', '083000', '110000',0);
 
 insert into checkinlist values (1, '20190114', '092012', '183548',0);
 insert into checkinlist values (2, '20190114', '083000', '120000',0);
@@ -173,16 +135,6 @@ insert into checkinlist values (7, '20190114', '083000', '110000',0);
 insert into checkinlist values (8, '20190114', '083000', '110000',0);
 insert into checkinlist values (9, '20190114', '083000', '110000',0);
 insert into checkinlist values (10, '20190114', '083000', '110000',0);
-insert into checkinlist values (11, '20190114', '083000', '110000',0);
-insert into checkinlist values (12, '20190114', '092012', '183548',0);
-insert into checkinlist values (13, '20190114', '083000', '120000',0);
-insert into checkinlist values (14, '20190114', '103000', '180000',0);
-insert into checkinlist values (15, '20190114', '073000', '150000',0);
-insert into checkinlist values (16, '20190114', '113000', '123000',0);
-insert into checkinlist values (17, '20190114', '083000', '110000',0);
-insert into checkinlist values (18, '20190114', '083000', '110000',0);
-insert into checkinlist values (19, '20190114', '083000', '110000',0);
-insert into checkinlist values (20, '20190114', '083000', '110000',0);
 
 insert into checkinlist values (1, '20190115', '092012', '183548',0);
 insert into checkinlist values (2, '20190115', '083000', '120000',0);
@@ -194,16 +146,19 @@ insert into checkinlist values (7, '20190115', '083000', '110000',0);
 insert into checkinlist values (8, '20190115', '083000', '110000',0);
 insert into checkinlist values (9, '20190115', '083000', '110000',0);
 insert into checkinlist values (10, '20190115', '083000', '110000',0);
-insert into checkinlist values (11, '20190115', '083000', '110000',0);
-insert into checkinlist values (12, '20190115', '092012', '183548',0);
-insert into checkinlist values (13, '20190115', '083000', '120000',0);
-insert into checkinlist values (14, '20190115', '103000', '180000',0);
-insert into checkinlist values (15, '20190115', '073000', '150000',0);
-insert into checkinlist values (16, '20190115', '113000', '123000',0);
-insert into checkinlist values (17, '20190115', '083000', '110000',0);
-insert into checkinlist values (18, '20190115', '083000', '110000',0);
-insert into checkinlist values (19, '20190115', '083000', '110000',0);
-insert into checkinlist values (20, '20190115', '083000', '110000',0);
+
+
+insert into checkinlist values (1, '20190116', '092012', '183548',0);
+insert into checkinlist values (2, '20190116', '083000', '120000',0);
+insert into checkinlist values (3, '20190116', '103000', '180000',0);
+insert into checkinlist values (4, '20190116', '073000', '150000',0);
+insert into checkinlist values (5, '20190116', '113000', '123000',0);
+insert into checkinlist values (6, '20190116', '083000', '110000',0);
+insert into checkinlist values (7, '20190116', '083000', '110000',0);
+insert into checkinlist values (8, '20190116', '083000', '110000',0);
+insert into checkinlist values (9, '20190116', '083000', '110000',0);
+insert into checkinlist values (10, '20190116', '083000', '110000',0);
+
 
 create table board(
 	qnanum number,
