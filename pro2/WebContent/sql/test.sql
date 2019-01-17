@@ -18,42 +18,28 @@ drop sequence board_seq;
 
 create table member(
 usernum number primary key,
-username varchar2(15) NOT NULL,
-userid varchar2(12) NOT NULL,
-userpw varchar2(12) NOT NULL,
+username varchar2(20) NOT NULL,
+userid varchar2(20) NOT NULL,
+userpw varchar2(20) NOT NULL,
 useraddr varchar2(120) NOT NULL,
-userphone varchar2(12) NOT NULL,
+userphone varchar2(20) NOT NULL,
 usermail varchar2(30) NOT NULL,
 userprog number default 0,
-userlevel varchar2(10) default 'student'
+userlevel varchar2(20) default 'student'
 );
 
 create sequence member_seq;
 
-insert into member values (member_seq.nextval,'student','student1','1234','seoul 1234','01042434246','111111@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'서지혜','jihey1','1234','seoul 1234','01042434246','111111@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'김도형','dohyung1','1234','seoul 1234','01042434246','222222@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'최시훈','sihoon1','1234','seoul 1234','01042434246','333333@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'김동현','donghyun1','1234','seoul 1234','01042434246','333333@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'김하늘','hanule1','1234','seoul 1234','01042434246','333333@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'박민호','minho1','1234','seoul 1234','01042434246','333333@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'원기','wongi1','1234','seoul 1234','01042434246','333333@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'이주은','leeju1','1234','seoul 1234','01042434246','333333@hanmail.net',1,'student');
-insert into member values (member_seq.nextval,'최범규','choi1','1234','seoul 1234','01042434246','333333@hanmail.net',1,'student');
-
-
-insert into member values (member_seq.nextval,'student','student2','1234','seoul 1234','01042434246','111111@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'서지혜','jihey2','1234','seoul 1234','01042434246','111111@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'김도형','dohyung2','1234','seoul 1234','01042434246','222222@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'최시훈','sihoon2','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'김동현','donghyun2','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'김하늘','hanule2','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'박민호','minho2','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'원기','wongi2','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'이주은','leeju2','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'최범규','choi2','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
-insert into member values (member_seq.nextval,'최영훈','younghun2','1234','seoul 1234','01042434246','333333@hanmail.net',2,'student');
-
+insert into member values (member_seq.nextval,'student','student1','1234','seoul 1234',01042434246,'111111@hanmail.net',1,'student');
+insert into member values (member_seq.nextval,'서지혜','jihey1','1234','seoul 1234',01042434246,'222222@hanmail.net',1,'student');
+insert into member values (member_seq.nextval,'김도형','dohyung1','1234','seoul 1234',01042434246,'333333@hanmail.net',1,'student');
+insert into member values (member_seq.nextval,'최시훈','sihoon1','1234','seoul 1234',01042434246,'333333@hanmail.net',1,'student');
+insert into member values (member_seq.nextval,'김동현','donghyun1','1234','seoul 1234',01042434246,'333333@hanmail.net',2,'student');
+insert into member values (member_seq.nextval,'김하늘','hanule1','1234','seoul 1234',01042434246,'333333@hanmail.net',2,'student');
+insert into member values (member_seq.nextval,'박민호','minho1','1234','seoul 1234',01042434246,'444444@hanmail.net',2,'student');
+insert into member values (member_seq.nextval,'원기','wongi1','1234','seoul 1234',01042434246,'555555@hanmail.net',2,'student');
+insert into member values (member_seq.nextval,'이주은','leeju1','1234','seoul 1234',01042434246,'555555@hanmail.net',3,'student');
+insert into member values (member_seq.nextval,'최범규','choi1','1234','seoul 1234',01042434246,'666666@hanmail.net',3,'student');
 
 insert into member values (member_seq.nextval,'유대종','youdea','1234','seoul 1234','01042434246','444444@hanmail.net',0,'teacher');
 insert into member values (member_seq.nextval,'현우진','hyunwoo','1234','seoul 1234','01042434246','555555@hanmail.net',0,'teacher');
@@ -77,9 +63,9 @@ create table program(
 
 create sequence program_seq;
 
-insert into program values (program_seq.nextval, 'java', 34, 'class1', sysdate, sysdate, 'AM 09:30', 320, 30, 10 );
-insert into program values (program_seq.nextval, 'database', 37, 'class2', sysdate, sysdate, 'AM 10:30', 120, 40, 10 );
-insert into program values (program_seq.nextval, 'web', 37, 'class3', sysdate, sysdate, 'PM 12:00', 60, 50, 10 );
+insert into program values (program_seq.nextval, 'java', 11, 'class1', sysdate, sysdate, 'AM 09:30', 320, 30, 0 );
+insert into program values (program_seq.nextval, 'database', 14, 'class2', sysdate, sysdate, 'AM 10:30', 120, 40, 0 );
+insert into program values (program_seq.nextval, 'web', 14, 'class3', sysdate, sysdate, 'PM 12:00', 60, 50, 0 );
 
 
 create table examlist(
@@ -92,9 +78,9 @@ create table examlist(
 
 create sequence examlist_seq;
 
-insert into examlist values (examlist_seq.nextval, 'java', sysdate, 'class1', 34);
-insert into examlist values (examlist_seq.nextval, 'database', sysdate, 'class2', 37);
-insert into examlist values (examlist_seq.nextval, 'web', sysdate, 'class3', 37);
+insert into examlist values (examlist_seq.nextval, 'java', sysdate, 'class1', 11);
+insert into examlist values (examlist_seq.nextval, 'database', sysdate, 'class2', 14);
+insert into examlist values (examlist_seq.nextval, 'web', sysdate, 'class3', 14);
 
 create table scorelist(
 	stunum number,
@@ -102,54 +88,55 @@ create table scorelist(
 	subname varchar2(30),
 	examdate varchar2(10),
 	teachname varchar2(15),
-	examscore number default 0,
-	examchk number default 0
+	examscore number,
+	examchk number
 );
 
-insert into scorelist values (1, 1, 'java','20190115','tea1',50, 0);
-insert into scorelist values (1, 2, 'database','20190116','tea2',60, 0);
-insert into scorelist values (1, 3, 'web','20190117','tea3',70, 0);
 
-insert into scorelist values (2, 1, 'java','20190115','tea1',90, 0);
-insert into scorelist values (2, 2, 'database','20190116','tea2',40, 0);
-insert into scorelist values (2, 3, 'web','20190117','tea3',30, 0);
+insert into scorelist values (1, 1, 'java','20190115','유대종',50, 0);
+insert into scorelist values (1, 2, 'database','20190116','teacher',60, 0);
+insert into scorelist values (1, 3, 'web','20190117','teacher',70, 0);
 
-insert into scorelist values (3, 1, 'java','20190115','tea1',20, 0);
-insert into scorelist values (3, 2, 'database','20190116','tea2',50, 0);
-insert into scorelist values (3, 3, 'web','20190117','tea3',60, 0);
+insert into scorelist values (2, 1, 'java','20190115','유대종',90, 0);
+insert into scorelist values (2, 2, 'database','20190116','teacher',40, 0);
+insert into scorelist values (2, 3, 'web','20190117','teacher',30, 0);
 
-insert into scorelist values (4, 1, 'java','20190115','tea1',20, 0);
-insert into scorelist values (4, 2, 'database','20190116','tea2',50, 0);
-insert into scorelist values (4, 3, 'web','20190117','tea3',60, 0);
+insert into scorelist values (3, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (3, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (3, 3, 'web','20190117','teacher',60, 0);
 
-insert into scorelist values (5, 1, 'java','20190115','tea1',20, 0);
-insert into scorelist values (5, 2, 'database','20190116','tea2',50, 0);
-insert into scorelist values (5, 3, 'web','20190117','tea3',60, 0);
+insert into scorelist values (4, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (4, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (4, 3, 'web','20190117','teacher',60, 0);
 
-insert into scorelist values (6, 1, 'java','20190115','tea1',20, 0);
-insert into scorelist values (6, 2, 'database','20190116','tea2',50, 0);
-insert into scorelist values (6, 3, 'web','20190117','tea3',60, 0);
+insert into scorelist values (5, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (5, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (5, 3, 'web','20190117','teacher',60, 0);
 
-insert into scorelist values (7, 1, 'java','20190115','tea1',20, 0);
-insert into scorelist values (7, 2, 'database','20190116','tea2',50, 0);
-insert into scorelist values (7, 3, 'web','20190117','tea3',60, 0);
+insert into scorelist values (6, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (6, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (6, 3, 'web','20190117','teacher',60, 0);
 
-insert into scorelist values (8, 1, 'java','20190115','tea1',20, 0);
-insert into scorelist values (8, 2, 'database','20190116','tea2',50, 0);
-insert into scorelist values (8, 3, 'web','20190117','tea3',60, 0);
+insert into scorelist values (7, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (7, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (7, 3, 'web','20190117','teacher',60, 0);
 
-insert into scorelist values (9, 1, 'java','20190115','tea1',20, 0);
-insert into scorelist values (9, 2, 'database','20190116','tea2',50, 0);
-insert into scorelist values (9, 3, 'web','20190117','tea3',60, 0);
+insert into scorelist values (8, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (8, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (8, 3, 'web','20190117','teacher',60, 0);
 
-insert into scorelist values (10, 1, 'java','20190115','tea1',20, 0);
-insert into scorelist values (10, 2, 'database','20190116','tea2',50, 0);
-insert into scorelist values (10, 3, 'web','20190117','tea3',60, 0);
+insert into scorelist values (9, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (9, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (9, 3, 'web','20190117','teacher',60, 0);
+
+insert into scorelist values (10, 1, 'java','20190115','유대종',20, 0);
+insert into scorelist values (10, 2, 'database','20190116','teacher',50, 0);
+insert into scorelist values (10, 3, 'web','20190117','teacher',60, 0);
 
 
 create table checkinlist(
 	stunum number,
-	checkdate varchar2(8),
+	checkdate varchar2(10),
 	checkin varchar2(6),
 	checkout varchar2(6),
 	checkchk number default 0
@@ -165,8 +152,6 @@ insert into checkinlist values (7, '20190113', '083000', '110000',0);
 insert into checkinlist values (8, '20190113', '083000', '110000',0);
 insert into checkinlist values (9, '20190113', '083000', '110000',0);
 insert into checkinlist values (10, '20190113', '083000', '110000',0);
-
-insert into checkinlist values (10, '20190113', '092012', '183548',0);
 insert into checkinlist values (11, '20190113', '083000', '120000',0);
 insert into checkinlist values (12, '20190113', '103000', '180000',0);
 insert into checkinlist values (13, '20190113', '073000', '150000',0);
@@ -241,4 +226,17 @@ insert into board values(board_seq.nextval,'원기',12346,01065353817,'점심시
 insert into board values(board_seq.nextval,'이주은',12346,01065353817,'무엇을 배우나요','학과목을 알고 싶습니다.?','');
 insert into board values(board_seq.nextval,'최범규',12346,01065353817,'궁금한게있어요','학원을 다니려면 어떻게해야하나요?','');
 
+
 commit;
+
+
+
+
+
+
+
+
+
+
+
+
