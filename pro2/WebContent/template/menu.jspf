@@ -3,8 +3,8 @@
 <div id="content">
 	<div id="mainimgs">
 	<ul>
-		<li><img alt="mainpage_banner" src="imgs/MainPage.jpg"></li>
-		<li><img alt="main" src="imgs/bitacademy.png"></li>
+		<li><img alt="mainpage_banner" src="../imgs/MainPage.jpg"></li>
+		<li><img alt="main" src="../imgs/bitacademy.png"></li>
 	</ul>
 	</div>
 	
@@ -32,7 +32,7 @@
 	
 	
 
-		<img alt="bene" src="imgs/benefit.jpg">
+		<img alt="bene" src="./imgs/benefit.jpg">
 	
 	
 </div>
