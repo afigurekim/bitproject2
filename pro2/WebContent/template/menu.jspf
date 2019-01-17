@@ -3,28 +3,28 @@
 <div id="content">
 	<div id="mainimgs">
 	<ul>
-		<li><img alt="mainpage_banner" src="../imgs/MainPage.jpg"></li>
-		<li><img alt="main" src="../imgs/bitacademy.png"></li>
+		<li><img alt="mainpage_banner" src="imgs/MainPage.jpg"></li>
+		<li><img alt="main" src="imgs/bitacademy.png"></li>
 	</ul>
 	</div>
 	
 		<div id="sub">
 			<div>
-				<a href="#">Python 프로그래밍</a>
-				<p>*과정 페이지로이동</p>
+				<a href="http://localhost:8080/pro2/lists/java.jsp">JAVA</a>
+				<p>*과목 페이지로이동</p>
 				교육장소 | 서대문점</br>
 				교육문의 | 02_3486_9600
 			</div>
 		
 			<div>
-				<a href="#">JAVA 웹개발자 고급과정</a>
-				<p>*과정 페이지로이동</p>
+				<a href="http://localhost:8080/pro2/lists/database.jsp">DATABASE</a>
+				<p>*과목 페이지로이동</p>
 				교육장소 | 서대문점</br>
 				교육문의 | 02_3486_9600
 			</div>
 			<div>
-				<a href="#">C Master C프로그래밍</a>
-				<p>*과정 페이지로이동</p>
+				<a href="http://localhost:8080/pro2/lists/web.jsp">WEB</a>
+				<p>*과목 페이지로이동</p>
 				교육장소 | 서대문점</br>
 				교육문의 | 02_3486_9600
 			</div>
@@ -32,7 +32,7 @@
 	
 	
 
-		<img alt="bene" src="./imgs/benefit.jpg">
+		<img alt="bene" src="imgs/benefit.jpg">
 	
 	
 </div>
